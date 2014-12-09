@@ -4,22 +4,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class Drawer extends JFrame {
+public class Drawer2 extends JFrame {
 
-    public Drawer() {
+    public Drawer2() {
 
         initUI();
     }
-
+    
     private void initUI() {
-
-        setTitle("Simple Java 2D example");
-
-        add(new Surface());
-
-        setSize(300, 200);
+        
+        setTitle("Lines");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        
+        add(new Surface());
+        
+        setSize(350, 350);
+        setLocationRelativeTo(null);        
     }
 
     public static void main(String[] args) {
@@ -28,9 +28,9 @@ public class Drawer extends JFrame {
 
             @Override
             public void run() {
-
-                Drawer dr = new Drawer();
-                dr.setVisible(true);
+                
+                Drawer lines = new Drawer();
+                lines.setVisible(true);
             }
         });
     }
