@@ -23,6 +23,7 @@ class Surface extends JPanel {
         int i = 0;
         while (i<10){
         	g2d.drawLine(previousFinishX, previousFinishY, nextX, nextY);
+        	
         	previousFinishX = nextX;
         	previousFinishY = nextY;
         	nextX = rnd.nextInt(previousFinishX+50);
