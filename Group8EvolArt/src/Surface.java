@@ -22,12 +22,12 @@ class Surface extends JPanel {
         
         int i = 0;
         while (i<10){
-        	g2d.drawLine(previousFinishX, previousFinishY, nextX, nextY);
-        	
+
         	previousFinishX = nextX;
         	previousFinishY = nextY;
         	nextX = rnd.nextInt(previousFinishX+50);
         	nextY = rnd.nextInt(previousFinishY+50);
+        	g2d.drawLine(previousFinishX, previousFinishY, nextX, nextY);
         	
         	if (nextX > ORIGIN) {
         		nextXm = ORIGIN - Math.abs(ORIGIN - nextX);
@@ -45,11 +45,6 @@ class Surface extends JPanel {
         	
         	i++;
         }
-        
-//        g2d.drawLine(ORIGIN, ORIGIN, 200, 30);
-//        g2d.drawLine(200, 30, 100, 300);
-//        g2d.drawLine(100, 300, ORIGIN, ORIGIN);
-//        g2d.drawLine(ORIGIN, ORIGIN, 30, 30);
 
    } 
 
