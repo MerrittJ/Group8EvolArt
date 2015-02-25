@@ -7,12 +7,12 @@ import javax.swing.SwingUtilities;
  * @author Josh Merritt
  *
  */
-public class Drawer extends JFrame {
+public class ProtoGUI extends JFrame {
 
 	/**
 	 * Constructor creating a Surface object in a sized window with basic GUI features.
 	 */
-    public Drawer() {
+    public ProtoGUI() {
         
         setTitle("Evolutionary Art - Group 8");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,7 +31,7 @@ public class Drawer extends JFrame {
             @Override
             public void run() {
                 
-                Drawer lines = new Drawer();
+                ProtoGUI lines = new ProtoGUI();
                 lines.setVisible(true);
             }
         });
