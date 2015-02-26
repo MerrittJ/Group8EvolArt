@@ -1,4 +1,7 @@
 package Prototype;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -16,8 +19,8 @@ public class ProtoGUI extends JFrame {
         
         setTitle("Evolutionary Art - Group 8");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        add(new Surface());
-        setSize(360, 350);       
+        add(new ProtoGUIPanel());
+        setSize(360, 350);
     }
 
     /**
