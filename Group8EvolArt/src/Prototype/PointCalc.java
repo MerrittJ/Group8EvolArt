@@ -13,13 +13,12 @@ class PointCalc {
 	 */
 	private static final int ORIGIN = 175;
 
-	private int previousFinishX;
-	private int previousFinishY;
-	private int previousFinishXm;
-	private int nextX; 
-	private int nextY; 
-	private int nextXm;
-	private Random rnd;
+	private int previousX;
+	private int previousY;
+	private int previousXm;
+	private int currentX; 
+	private int currentY; 
+	private int currentXm;
 
 	/**
 	 * Main drawing method
@@ -27,79 +26,74 @@ class PointCalc {
 	 */
 	public PointCalc(){
 		// set initial point to draw from at centre of frame
-		previousFinishX = ORIGIN;
-		previousFinishY = ORIGIN;
-		previousFinishXm = ORIGIN;
+		previousX = ORIGIN;
+		previousY = ORIGIN;
+		previousXm = ORIGIN;
 
-		nextX = ORIGIN; 
-		nextY = ORIGIN; 
-		nextXm = ORIGIN;
+		currentX = ORIGIN; 
+		currentY = ORIGIN; 
+		currentXm = ORIGIN;
 	}
 
-	public void calcNextPoints(int prevX, int prevY) {
-		//updatePrev();
-		calcNextX(prevX);
-		calcNextY(prevY);
-		calcNextXm(prevX);
-		
+	public void calcNextPoints() {
+		calcNextX();
+		calcNextY();
+		calcNextXm();
 	} 
 
-	public void calcNextX(int prevX){
+	public void calcNextX(){
 		
 		Random rnd = new Random();
-		nextX = rnd.nextInt(previousFinishX+50);
-		previousFinishX = prevX;
+		currentX = rnd.nextInt(currentX+50);
 	}
 	
-	public void calcNextY(int prevY){
+	public void calcNextY(){
 		
 		Random rnd = new Random();
-		nextY = rnd.nextInt(previousFinishY+50);
-		previousFinishY = prevY;
+		currentY = rnd.nextInt(currentY+50);
 	}
 	
-	public void calcNextXm(int prevX){
+	public void calcNextXm(){
 		
-		if (nextX > ORIGIN) {
-			nextXm = ORIGIN - Math.abs(ORIGIN - nextX);
+		if (currentX > ORIGIN) {
+			currentXm = ORIGIN - Math.abs(ORIGIN - currentX);
 		}
-		else if (nextX < ORIGIN) {
-			nextXm = ORIGIN + Math.abs(ORIGIN - nextX);
+		else if (currentX < ORIGIN) {
+			currentXm = ORIGIN + Math.abs(ORIGIN - currentX);
 		}
-		else if (nextX == ORIGIN) {
-			nextXm = nextX;
+		else if (currentX == ORIGIN) {
+			currentXm = currentX;
 		}  
-		previousFinishXm = prevX;
 	}
 	
 	public void updatePrev(){
-		previousFinishX = nextX;
-		previousFinishY = nextY;
-		previousFinishXm = nextXm;
+		previousX = currentX;
+		previousY = currentY;
+		previousXm = currentXm;
 	}
 
-	public int getNextX() {
-		return nextX;
+	public int getCurrentX() {
+		return currentX;
 	}    
 
-	public int getNextY() {
-		return nextY;
+	public int getCurrentY() {
+		return currentY;
 	}
 
-	public int getNextXm() {
-		return nextXm;
+	public int getCurrentXm() {
+		return currentXm;
 	}
 
-	public int getPreviousFinishX() {
-		return previousFinishX;
+	public int getPreviousX() {
+		return previousX;
 	}    
 
-	public int getPreviousFinishY() {
-		return previousFinishY;
+	public int getPreviousY() {
+		return previousY;
 	}
 
-	public int getPreviousFinishXm() {
-		return previousFinishXm;
+	public int getPreviousXm() {
+		return previousXm;
 	}
 
 }
