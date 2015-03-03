@@ -2,7 +2,7 @@ package Prototype;
 import java.util.Random;
 
 /**
- * Class responsible for generating the points and lines to be drawn by Drawer. Will accept DNA objects in future to influence how/where lines are drawn.
+ * Class responsible for generating the points to be drawn by ProtoGUIPanel. Will interact with DNA objects in future to influence how/where lines are drawn.
  * @author Josh Merritt
  *
  */
@@ -22,7 +22,6 @@ class PointCalc {
 
 	/**
 	 * Main drawing method
-	 * @param g - a Graphics object used for visuals in Java Swing
 	 */
 	public PointCalc(){
 		// set initial point to draw from at centre of frame

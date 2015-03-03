@@ -6,14 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
- * Class responsible for drawing biomorph in a GUI. Currently standalone, will be implemented into a full GUI in term 2.
+ * Temporary class responsible for the prototype GUI.
  * @author Josh Merritt
  *
  */
 public class ProtoGUI extends JFrame {
 
 	/**
-	 * Constructor creating a Surface object in a sized window with basic GUI features.
+	 * Constructor creating a ProtoGUIPanel panel in a sized window with basic GUI features.
 	 */
     public ProtoGUI() {
         
@@ -24,7 +24,7 @@ public class ProtoGUI extends JFrame {
     }
 
     /**
-     * Main method required for running the program. Shows lines drawn in Surface.
+     * Main method required for running the program. Shows lines drawn in ProtoGUIPanel.
      * @param args
      */
     public static void main(String[] args) {
