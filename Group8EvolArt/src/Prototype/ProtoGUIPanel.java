@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class ProtoGUIPanel extends JPanel{
 	
-	PointCalc pc = new PointCalc();
+	ProtoPointCalc pc = new ProtoPointCalc();
 	
 	private void doDrawing(Graphics g){
 		

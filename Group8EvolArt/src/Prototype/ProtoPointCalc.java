@@ -6,7 +6,7 @@ import java.util.Random;
  * @author Josh Merritt
  *
  */
-class PointCalc {
+class ProtoPointCalc {
 
 	/**
 	 * Variable to dictate centre of drawing frame
@@ -23,7 +23,7 @@ class PointCalc {
 	/**
 	 * Main drawing method
 	 */
-	public PointCalc(){
+	public ProtoPointCalc(){
 		// set initial point to draw from at centre of frame
 		resetToOrigin();
 	}
