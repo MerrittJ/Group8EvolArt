@@ -22,6 +22,7 @@ public class ProtoGUIPanel extends JPanel{
 			
 			i++;
 		}
+		pc.resetToOrigin();
 	}
 	
 	 @Override

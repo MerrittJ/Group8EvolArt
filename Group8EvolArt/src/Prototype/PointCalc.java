@@ -25,13 +25,7 @@ class PointCalc {
 	 */
 	public PointCalc(){
 		// set initial point to draw from at centre of frame
-		previousX = ORIGIN;
-		previousY = ORIGIN;
-		previousXm = ORIGIN;
-
-		currentX = ORIGIN; 
-		currentY = ORIGIN; 
-		currentXm = ORIGIN;
+		resetToOrigin();
 	}
 
 	public void calcNextPoints() {
@@ -69,6 +63,16 @@ class PointCalc {
 		previousX = currentX;
 		previousY = currentY;
 		previousXm = currentXm;
+	}
+	
+	public void resetToOrigin() {
+		previousX = ORIGIN;
+		previousY = ORIGIN;
+		previousXm = ORIGIN;
+
+		currentX = ORIGIN; 
+		currentY = ORIGIN; 
+		currentXm = ORIGIN;
 	}
 
 	public int getCurrentX() {
