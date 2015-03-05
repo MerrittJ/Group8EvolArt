@@ -2,6 +2,7 @@ package Stage2;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.HashMap;
 
 import javax.swing.JPanel;
 
@@ -13,7 +14,7 @@ public class BiomorphPanel extends JPanel{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-//		int i = 0;	
+		int i = 0;	
 //		while (i<5){
 //			pc.calcNextPoints();
 //			g2d.drawLine(pc.getPreviousX(), pc.getPreviousY(), pc.getCurrentX(), pc.getCurrentY());
@@ -25,7 +26,11 @@ public class BiomorphPanel extends JPanel{
 //		pc.resetToOrigin();
 		
 		//draw head
-		g2d.drawLine();
+		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePoints();
+		while (i < 4) {
+			g2d.drawLine(points.x.get(i).x, points.x.get(i).y, points.y.get(i).x, points.y.get(i).y);
+			i++;
+		}
 		
 	}
 	

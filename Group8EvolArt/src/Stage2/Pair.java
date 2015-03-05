@@ -6,12 +6,4 @@ public class Pair<X, Y> {
 
 	public Pair(){
 	}
-	
-//	public void setT(T t){
-//		this.t = t;
-//	}
-//	
-//	public void setU(U u){
-//		this.u = u;
-//	}
 }

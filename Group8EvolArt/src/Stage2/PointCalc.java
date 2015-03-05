@@ -13,7 +13,7 @@ class PointCalc {
 	/**
 	 * Variable to dictate centre of drawing frame
 	 */
-	private static final int ORIGIN = 175;
+	private static final int ORIGIN = 175*2;
 
 	private int previousX;
 	private int previousY;
@@ -32,6 +32,9 @@ class PointCalc {
 	public PointCalc(){
 		// set initial point to draw from at centre of frame
 		resetToOrigin();
+		 hc = new HeadCalc();
+		 ec = new EyeCalc();
+		 ebc = new EyebrowCalc();
 	}
 
 	public void supplyDNA(String[] dna){
@@ -49,7 +52,7 @@ class PointCalc {
 		ebc.setAttribs(eyebrowAttribs);
 	}
 	
-	public HashMap<Integer, Pair<Integer, Integer>> getHeadShapePoints(){
+	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePoints(){
 		//new array holding the points required to draw (a side of) the head
 		HashMap<Integer, Pair<Integer, Integer>> points = new HashMap<Integer, Pair<Integer, Integer>>(hc.getHeadLines()+1);
 		//mirrored side
@@ -59,8 +62,8 @@ class PointCalc {
 		int hw = hc.getHeadWidth();
 		int hh = hc.getHeadHeight();
 		int hl = hc.getHeadLines();
-		int propX = (hw / 2) / (hl / 2);
-		int propY = (hh / 2) / (hl / 2);
+		int propX = (hw / 4) / (hl / 2);
+		int propY = (hh / 4) / (hl / 2);
 		
 		//top
 		hold.x = 0;
@@ -69,29 +72,31 @@ class PointCalc {
 		
 		int i = 1;
 		while (i < ((hl / 2) + 1)) {
-			hold.x = ORIGIN + propX * i;
-			hold.y = ORIGIN - propY * i;
+			hold.x = ORIGIN + (propX * i);
+			hold.y = ORIGIN + (hh / 2) - (propY * i);
 			points.put(i, hold);
+			hold.x = ORIGIN - (propX * i);
 			i++;
+			pointsM.put(i,  hold);
 		}
 		
 		while (i < ((hl) + 1)) {
-			hold.x = ORIGIN - propX * i;
-			hold.y = ORIGIN - propY * i;
+			hold.x = (hw/2) - (propX * i);
+			hold.y = ORIGIN - (hh / 2) - (propY * i);
 			points.put(i, hold);
+			hold.x = (ORIGIN - (hw/2)) + (propX * i);
+			i++;
 		}
 		
+		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> allPoints = new Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>>();
+		allPoints.x = points;
+		allPoints.y = pointsM;
 		
-		
-		//bottom
-		hold.x = 0;
-		hold.y = ORIGIN - (hc.getHeadHeight() / 2);
-		points.put(2, hold);
-		
-		//width (left or right?), mirrored regardless
-		points[2] = ORIGIN + (hc.getHeadWidth() / 2);
-		points[3] = points[0] 
-		return points;
+		return allPoints;
+	}
+	
+	public int getHeadLines(){
+		return hc.getHeadLines();
 	}
 	
 	public void calcNextPoints() {
