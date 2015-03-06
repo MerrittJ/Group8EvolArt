@@ -14,7 +14,7 @@ public class BiomorphPanel extends JPanel{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		int i = 0;	
+		int i = 1;	
 //		while (i<5){
 //			pc.calcNextPoints();
 //			g2d.drawLine(pc.getPreviousX(), pc.getPreviousY(), pc.getCurrentX(), pc.getCurrentY());
@@ -28,7 +28,8 @@ public class BiomorphPanel extends JPanel{
 		//draw head
 		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePoints();
 		while (i < 4) {
-			g2d.drawLine(points.x.get(i).x, points.x.get(i).y, points.y.get(i).x, points.y.get(i).y);
+			//g2d.drawLine(points.x.get(i).x, points.x.get(i).y, points.y.get(i).x, points.y.get(i).y);
+			g2d.drawLine(points.x.get(i).x, points.x.get(i).y, 10, 10);
 			i++;
 		}
 		
