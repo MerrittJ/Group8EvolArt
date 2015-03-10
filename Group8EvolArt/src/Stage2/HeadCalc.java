@@ -2,10 +2,9 @@ package Stage2;
 
 public class HeadCalc {
 
-	// temporary values for testing purposes
-	private int headLines = 4;
-	private int headWidth = 200;
-	private int headHeight = 200;
+	private int headLines;
+	private int headWidth;
+	private int headHeight;
 	
 	public HeadCalc() {
 		

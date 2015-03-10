@@ -58,33 +58,30 @@ class PointCalc {
 		//mirrored side
 		HashMap<Integer, Pair<Integer, Integer>> pointsM = new HashMap<Integer, Pair<Integer, Integer>>(hc.getHeadLines()+1);
 		
-		Pair<Integer, Integer> hold = new Pair<Integer, Integer>();
-		int hw = hc.getHeadWidth();
-		int hh = hc.getHeadHeight();
-		int hl = hc.getHeadLines();
+		int hw = 200; //hc.getHeadWidth();
+		int hh = 200; //hc.getHeadHeight();
+		int hl = 8; //hc.getHeadLines();
 		int propX = (hw / 4) / (hl / 2);
 		int propY = (hh / 4) / (hl / 2);
 		
-		//top
-		hold.x = 0;
-		hold.y = ORIGIN + (hh / 2);
-		points.put(0, hold);
-		
-		int i = 1;
-		while (i < ((hl / 2) + 1)) {
+		int i = 0;
+		while (i < (hl / 2)) {
+			Pair<Integer, Integer> hold = new Pair<Integer, Integer>();
 			hold.x = ORIGIN + (propX * i);
 			hold.y = ORIGIN + (hh / 2) - (propY * i);
 			points.put(i, hold);
 			hold.x = ORIGIN - (propX * i);
+			pointsM.put(i, hold);
 			i++;
-			pointsM.put(i,  hold);
 		}
 		
-		while (i < ((hl) + 1)) {
+		while (i < hl) {
+			Pair<Integer, Integer> hold = new Pair<Integer, Integer>();
 			hold.x = (hw/2) - (propX * i);
 			hold.y = ORIGIN - (hh / 2) - (propY * i);
 			points.put(i, hold);
 			hold.x = (ORIGIN - (hw/2)) + (propX * i);
+			pointsM.put(i, hold);
 			i++;
 		}
 		
