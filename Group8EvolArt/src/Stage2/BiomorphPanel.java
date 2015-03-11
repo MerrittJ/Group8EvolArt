@@ -14,26 +14,25 @@ public class BiomorphPanel extends JPanel{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		int i = 1;	
-//		while (i<5){
-//			pc.calcNextPoints();
-//			g2d.drawLine(pc.getPreviousX(), pc.getPreviousY(), pc.getCurrentX(), pc.getCurrentY());
-//			g2d.drawLine(pc.getPreviousXm(), pc.getPreviousY(), pc.getCurrentXm(), pc.getCurrentY());
-//			pc.updatePrev();
-//			
+//		//draw head
+//		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePoints();
+//		int i = 1;
+//		while (i < 4) {
+//			g2d.drawLine(points.x.get(i-1).x, points.x.get(i-1).y, points.x.get(i).x, points.x.get(i).y);
 //			i++;
 //		}
-//		pc.resetToOrigin();
+//		
+//		i = 1;
+//		while (i < 4) {
+//			g2d.drawLine(points.y.get(i-1).x, points.y.get(i-1).y, points.y.get(i).x, points.y.get(i).y);
+//			i++;
+//		}
 		
-		//draw head
-		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePoints();
+		//draw eyebrows
+		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getEyebrowPoints();
+		int i = 1;
 		while (i < points.x.size()){
 			g2d.drawLine(points.x.get(i-1).x, points.x.get(i-1).y, points.x.get(i).x, points.x.get(i).y);
-			i++;
-		}
-		
-			//g2d.drawLine(points.x.get(i).x, points.x.get(i).y, points.y.get(i).x, points.y.get(i).y);
-			g2d.drawLine(points.x.get(i).x, points.x.get(i).y, 10, 10);
 			i++;
 		}
 		
