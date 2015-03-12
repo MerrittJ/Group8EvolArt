@@ -25,7 +25,7 @@ public class TempGUI extends JFrame {
         setTitle("Evolutionary Art - Group 8");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(new BiomorphPanel());
-        setSize(360*2, 350*2);
+        setSize(360*2, 350*2); // top left is 0,0
     }
 
     /**

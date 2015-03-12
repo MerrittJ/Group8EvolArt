@@ -30,11 +30,8 @@ public class BiomorphPanel extends JPanel{
 		
 		//draw eyebrows
 		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getEyebrowPoints();
-		int i = 1;
-		while (i < points.x.size()){
-			g2d.drawLine(points.x.get(i-1).x, points.x.get(i-1).y, points.x.get(i).x, points.x.get(i).y);
-			i++;
-		}
+		g2d.drawLine(points.x.get(0).x, points.x.get(0).y, points.x.get(1).x, points.x.get(1).y);
+		g2d.drawLine(points.y.get(0).x, points.y.get(0).y, points.y.get(1).x, points.y.get(1).y);
 		
 	}
 	

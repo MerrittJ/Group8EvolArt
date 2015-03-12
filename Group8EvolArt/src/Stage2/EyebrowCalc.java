@@ -5,9 +5,10 @@ import java.util.HashMap;
 public class EyebrowCalc {
 
 	private int eyebrowWidth = 100;
-	private int eyebrowHeight = 100;
-	private int eyebrowLines = 6;
-	private int eyebrowDistance;
+	private int eyebrowHeight = 50;
+	private int eyebrowLines = 6; //non-functional at this time
+	private int eyebrowDistance = 100;
+	private int ORIGIN = 350; //put this in some higher class???
 	
 	public EyebrowCalc() {
 		
@@ -37,29 +38,28 @@ public class EyebrowCalc {
 		HashMap<Integer, Pair<Integer, Integer>> eyebrow = new HashMap<Integer, Pair<Integer, Integer>>();
 		HashMap<Integer, Pair<Integer, Integer>> eyebrowM = new HashMap<Integer, Pair<Integer, Integer>>();
 		
-		int i = 0;
-		while (i < eyebrowLines){
-			Pair<Integer, Integer> hold = new Pair<Integer, Integer>();
-			hold.x = i*(eyebrowWidth / eyebrowLines);
-			hold.y = 0;
-			eyebrow.put(i, hold);
-			i++;
-			//mismatch between points and width, unsure how to resolve
-		}
+		//draw right eyebrow
+		Pair<Integer, Integer> ebr = new Pair<Integer, Integer>();
+		ebr.x = ORIGIN + (eyebrowDistance / 2);
+		ebr.y = ORIGIN - 100; //some starting point???
+		eyebrow.put(0, ebr);
 		
-		i = 0;
-		for (Pair<Integer, Integer> value : eyebrow.values()){
-			if (i < (eyebrowLines/2)) {
-				value.y = i*(eyebrowHeight / eyebrowLines);
-			}
-			else if (i == (eyebrowLines/2)){
-				value.y = eyebrowHeight;
-			}
-			else if (i > (eyebrowLines/2)) {
-				value.y = eyebrowHeight - (i*(eyebrowHeight / eyebrowLines));
-			}
-			i++;
-		}
+		Pair<Integer, Integer> ebr2 = new Pair<Integer, Integer>();
+		ebr2.x = ebr.x + eyebrowWidth;
+		ebr2.y = ebr.y - eyebrowHeight;
+		eyebrow.put(1, ebr2);
+		
+		//draw left
+		Pair<Integer, Integer> ebl = new Pair<Integer, Integer>();
+		ebl.x = ORIGIN - (eyebrowDistance / 2);
+		ebl.y = ebr.y;
+		eyebrowM.put(0, ebl);
+		
+		Pair<Integer, Integer> ebl2 = new Pair<Integer, Integer>();
+		ebl2.x = ebl.x - eyebrowWidth;
+		ebl2.y = ebl.y - eyebrowHeight;
+		eyebrowM.put(1, ebl2);
+
 		
 		allpoints.x = eyebrow;
 		allpoints.y = eyebrowM;
