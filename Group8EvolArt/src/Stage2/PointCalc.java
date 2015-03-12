@@ -1,4 +1,5 @@
 package Stage2;
+import java.awt.Polygon;
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Random;
@@ -133,6 +134,10 @@ class PointCalc {
 
 	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getEyebrowPoints() {
 		return ebc.getEyebrowPoints();
+	}
+	
+	public Pair<Polygon, Polygon> getAllEyePoints(){
+		return ec.getAllEyePoints();
 	}
 
 }
