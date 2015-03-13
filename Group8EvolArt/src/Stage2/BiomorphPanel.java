@@ -3,6 +3,7 @@ package Stage2;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
@@ -15,8 +16,8 @@ public class BiomorphPanel extends JPanel{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-//		//draw head
-//		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePoints();
+//		//draw headOld
+//		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePointsOld();
 //		int i = 1;
 //		while (i < 4) {
 //			g2d.drawLine(points.x.get(i-1).x, points.x.get(i-1).y, points.x.get(i).x, points.x.get(i).y);
@@ -28,6 +29,10 @@ public class BiomorphPanel extends JPanel{
 //			g2d.drawLine(points.y.get(i-1).x, points.y.get(i-1).y, points.y.get(i).x, points.y.get(i).y);
 //			i++;
 //		}
+		
+		//draw head
+		Ellipse2D hPoints = pc.getHeadShape();
+		g2d.draw(hPoints);
 		
 		//draw eyebrows
 		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> ebPoints = pc.getEyebrowPoints();

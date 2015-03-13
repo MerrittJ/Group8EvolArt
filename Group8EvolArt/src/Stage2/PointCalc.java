@@ -1,6 +1,6 @@
 package Stage2;
 import java.awt.Polygon;
-import java.lang.reflect.Array;
+import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -53,8 +53,12 @@ class PointCalc {
 		ebc.setAttribs(eyebrowAttribs);
 	}
 	
-	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePoints(){
-		return hc.getHeadShapePoints();
+	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePointsOld(){
+		return hc.getHeadShapePointsOld();
+	}
+	
+	public Ellipse2D getHeadShape(){
+		return hc.getHeadShape();
 	}
 	
 	public int getHeadLines(){

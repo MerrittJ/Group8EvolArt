@@ -1,13 +1,15 @@
 package Stage2;
 
-import java.awt.Polygon;
+import java.awt.Polygon; //has contains() method, helpful for boundary checks!
 
 public class EyeCalc {
 
 	private int ORIGIN = 350;
 	private int eyeWidth;
 	private int eyeHeight;
-	private int eyePoints;
+	private int eyePoints = 30;
+	//private int eyeRadius;
+	//private int xDistance;
 
 	public EyeCalc() {
 
@@ -34,12 +36,12 @@ public class EyeCalc {
 
 		Polygon p = new Polygon();
 		for (int i = 0; i < eyePoints; i++){
-			p.addPoint((int) (ORIGIN + 50 + 50 * Math.cos(60 + i * 2 * Math.PI / 5)), (int) (ORIGIN + 50 * Math.sin(60 + i * 2 * Math.PI / 5)));
+			p.addPoint((int) (ORIGIN + /*xDistance*/50 + /*eyeRadius*/50 * Math.cos(/*rotation? x * */i * 2 * Math.PI / eyePoints)), (int) (ORIGIN + /*eyeRadius*/50 * Math.sin(/*rotation? x * */i * 2 * Math.PI / eyePoints)));
 		}
 		
 		Polygon p2 = new Polygon();
 		for (int i = 0; i < eyePoints; i++){
-			p2.addPoint((int) (ORIGIN - 50 + 50 * Math.cos(60 + i * 2 * Math.PI / 5)), (int) (ORIGIN + 50 * Math.sin(60 + i * 2 * Math.PI / 5)));
+			p2.addPoint((int) (ORIGIN - /*xDistance*/50 + /*eyeRadius*/50 * Math.cos(i * 2 * Math.PI / eyePoints)), (int) (ORIGIN + /*eyeRadius*/50 * Math.sin(i * 2 * Math.PI / eyePoints)));
 		}
 		
 		Pair<Polygon, Polygon> pair = new Pair<Polygon, Polygon>();

@@ -1,12 +1,14 @@
 package Stage2;
 
+import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 
 public class HeadCalc {
 
+	private int ORIGIN = 350;
 	private int headLines;
-	private int headWidth;
-	private int headHeight;
+	private int headWidth = 500;
+	private int headHeight = 500;
 	
 	public HeadCalc() {
 		
@@ -30,7 +32,9 @@ public class HeadCalc {
 		return headHeight;
 	}
 	
-	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePoints(){
+	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePointsOld(){
+		//see http://stackoverflow.com/questions/22694850/approximating-an-ellipse-with-a-polygon
+		
 		int ORIGIN = 350;
 		//new array holding the points required to draw (a side of) the head
 		HashMap<Integer, Pair<Integer, Integer>> points = new HashMap<Integer, Pair<Integer, Integer>>(getHeadLines()+1);
@@ -69,5 +73,11 @@ public class HeadCalc {
 		allPoints.y = pointsM;
 		
 		return allPoints;
+	}
+	
+	public Ellipse2D getHeadShape(){
+		Ellipse2D elip = new Ellipse2D.Double();
+		elip.setFrameFromCenter(ORIGIN, ORIGIN, (ORIGIN - (headWidth/2)), (ORIGIN - (headHeight/2)));
+		return elip;
 	}
 }
