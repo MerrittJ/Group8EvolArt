@@ -1,7 +1,9 @@
-package Stage2;
+package Model;
 
 import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
+
+import Stage2.Pair;
 
 public class HeadCalc {
 

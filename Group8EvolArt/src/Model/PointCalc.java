@@ -1,15 +1,17 @@
-package Stage2;
+package Model;
 import java.awt.Polygon;
 import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 import java.util.Random;
+
+import Stage2.Pair;
 
 /**
  * Class responsible for generating the points to be drawn by ProtoGUIPanel. Will interact with DNA objects in future to influence how/where lines are drawn.
  * @author Josh Merritt
  *
  */
-class PointCalc {
+public class PointCalc {
 
 	/**
 	 * Variable to dictate centre of drawing frame

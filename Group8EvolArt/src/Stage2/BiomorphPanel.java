@@ -5,8 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
-
 import javax.swing.JPanel;
+
+import Model.PointCalc;
 
 public class BiomorphPanel extends JPanel{
 	

@@ -1,6 +1,8 @@
-package Stage2;
+package Model;
 
 import java.awt.Polygon; //has contains() method, helpful for boundary checks!
+
+import Stage2.Pair;
 
 public class EyeCalc {
 
