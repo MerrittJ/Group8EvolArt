@@ -28,6 +28,7 @@ public class PointCalc {
 	private HeadCalc hc;
 	private EyeCalc ec;
 	private EyebrowCalc ebc;
+	private NoseCalc nc;
 
 	/**
 	 * Main drawing method
@@ -38,6 +39,7 @@ public class PointCalc {
 		 hc = new HeadCalc();
 		 ec = new EyeCalc();
 		 ebc = new EyebrowCalc();
+		 nc = new NoseCalc();
 	}
 
 	public void supplyDNA(String[] dna){
@@ -61,6 +63,10 @@ public class PointCalc {
 	
 	public Ellipse2D getHeadShape(){
 		return hc.getHeadShape();
+	}
+	
+	public HashMap<Integer, Pair<Integer, Integer>> getNosePoints(){
+		return nc.getNosePoints();
 	}
 	
 	public int getHeadLines(){

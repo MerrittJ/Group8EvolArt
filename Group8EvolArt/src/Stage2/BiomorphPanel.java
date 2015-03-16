@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
+
 import javax.swing.JPanel;
 
 import Model.PointCalc;
@@ -45,6 +46,10 @@ public class BiomorphPanel extends JPanel{
 		g2d.drawPolygon(ePoints.x);
 		g2d.drawPolygon(ePoints.y);
 		
+		//draw nose
+		HashMap<Integer, Pair<Integer, Integer>> nPoints = pc.getNosePoints();
+		g2d.drawLine(nPoints.get(0).x, nPoints.get(0).y, nPoints.get(1).x, nPoints.get(1).y);
+		g2d.drawLine(nPoints.get(1).x, nPoints.get(1).y, nPoints.get(2).x, nPoints.get(2).y);
 	}
 	
 	 @Override
