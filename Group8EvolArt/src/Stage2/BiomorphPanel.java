@@ -33,8 +33,9 @@ public class BiomorphPanel extends JPanel{
 //		}
 		
 		//draw head
-		Ellipse2D hPoints = pc.getHeadShape();
-		g2d.draw(hPoints);
+		//Ellipse2D hPoints = pc.getHeadShape();
+		Polygon hPoints = pc.getHeadShape();
+		g2d.drawPolygon(hPoints);
 		
 		//draw eyebrows
 		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> ebPoints = pc.getEyebrowPoints();

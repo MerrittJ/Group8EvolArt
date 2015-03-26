@@ -57,11 +57,7 @@ public class PointCalc {
 		ebc.setAttribs(eyebrowAttribs);
 	}
 	
-	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getHeadShapePointsOld(){
-		return hc.getHeadShapePointsOld();
-	}
-	
-	public Ellipse2D getHeadShape(){
+	public Polygon getHeadShape(){
 		return hc.getHeadShape();
 	}
 	
@@ -70,7 +66,7 @@ public class PointCalc {
 	}
 	
 	public int getHeadLines(){
-		return hc.getHeadLines();
+		return hc.getHeadPoints();
 	}
 	
 	public void calcNextPoints() {
