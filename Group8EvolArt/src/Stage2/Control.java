@@ -1,10 +1,25 @@
 package Stage2;
 
+import java.util.ArrayList;
+
 public class Control {
 
-	public static void main(String[] args) {
+	private ArrayList<BiomorphPanel> generation;
+	
+	public Control() {
 		
-
+		//arraylist of biomorphs to be shown in GUI
+		generation = new ArrayList<BiomorphPanel>();
+		int i = 0;
+		//adds 9 biomorphPanels. TODO:Separate biomorph from panel?
+		while (i < 9){
+			generation.add(new BiomorphPanel());
+			i++;
+		}
+	}
+	
+	public ArrayList<BiomorphPanel> getGeneration(){
+		return generation;
 	}
 
 }

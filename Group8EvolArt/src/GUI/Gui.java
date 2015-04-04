@@ -1,19 +1,21 @@
 package GUI;
 
 
-import java.awt.BorderLayout;
-
-
-
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
+import Stage2.*;
 
 import java.awt.Label;
 import java.awt.Font;
@@ -43,6 +45,9 @@ public class Gui extends JFrame {
 	 * Create the frame.
 	 */
 	public Gui() {
+		
+		Control c = new Control();
+		
 		setTitle("BIOMORPH GENERATOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 577);
@@ -110,17 +115,31 @@ public class Gui extends JFrame {
 		label_2.setBounds(10, 11, 169, 14);
 		contentPane.add(label_2);
 		
-		Panel panel = new Panel();
+		//bio1
+		JPanel panel = new JPanel();
 		panel.setBounds(287, 32, 178, 189);
+		Border blackLine = BorderFactory.createLineBorder(Color.black);
+		panel.setBorder(blackLine);
 		contentPane.add(panel);
 		
-		Panel panel_1 = new Panel();
+		//bio2
+		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(287, 265, 178, 189);
+		Border redLine = BorderFactory.createLineBorder(Color.red);
+		panel_1.setBorder(redLine);
 		contentPane.add(panel_1);
 		
-		Panel panel_2 = new Panel();
+		//generation panel
+		JPanel panel_2 = new JPanel(new GridLayout(4, 4, 3, 3));
 		panel_2.setBounds(10, 32, 258, 375);
+		Border blueLine = BorderFactory.createLineBorder(Color.blue);
+		panel_2.setBorder(blueLine);
 		contentPane.add(panel_2);
+		
+		for (BiomorphPanel bp : c.getGeneration()){
+			panel_2.add(bp);
+		}
+		
 		
 		
 	}
