@@ -18,22 +18,7 @@ public class BiomorphPanel extends JPanel{
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-//		//draw headOld
-//		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> points = pc.getHeadShapePointsOld();
-//		int i = 1;
-//		while (i < 4) {
-//			g2d.drawLine(points.x.get(i-1).x, points.x.get(i-1).y, points.x.get(i).x, points.x.get(i).y);
-//			i++;
-//		}
-//		
-//		i = 1;
-//		while (i < 4) {
-//			g2d.drawLine(points.y.get(i-1).x, points.y.get(i-1).y, points.y.get(i).x, points.y.get(i).y);
-//			i++;
-//		}
-		
 		//draw head
-		//Ellipse2D hPoints = pc.getHeadShape();
 		Polygon hPoints = pc.getHeadShape();
 		g2d.drawPolygon(hPoints);
 		
@@ -54,10 +39,13 @@ public class BiomorphPanel extends JPanel{
 	}
 	
 	 @Override
-	    public void paintComponent(Graphics g) {
-	        
-	        super.paintComponent(g);
-	        doDrawing(g);
+	 public void paintComponent(Graphics g) {       
+		 Graphics2D g2 = (Graphics2D) g;
+		 //scaling and translating to fit into mini panels in GUI
+		 g2.scale(0.15, 0.15);
+		 g2.translate(-100.0, 0.0);
+		 super.paintComponent(g2);
+	     doDrawing(g2);
 	    }    
 
 }

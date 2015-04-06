@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -47,6 +48,9 @@ public class Gui extends JFrame {
 	public Gui() {
 		
 		Control c = new Control();
+		BiomorphPanel selected1 = null;
+		BiomorphPanel selected2 = null;
+		BMMouseListener ml = new BMMouseListener();
 		
 		setTitle("BIOMORPH GENERATOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -120,6 +124,11 @@ public class Gui extends JFrame {
 		panel.setBounds(287, 32, 178, 189);
 		Border blackLine = BorderFactory.createLineBorder(Color.black);
 		panel.setBorder(blackLine);
+		if (ml.getBiomorphPanel() != null){
+			panel.add(ml.getBiomorphPanel());
+			System.out.print("lol");
+			panel.revalidate();
+		}
 		contentPane.add(panel);
 		
 		//bio2
@@ -130,17 +139,19 @@ public class Gui extends JFrame {
 		contentPane.add(panel_1);
 		
 		//generation panel
-		JPanel panel_2 = new JPanel(new GridLayout(4, 4, 3, 3));
+		JPanel panel_2 = new JPanel(new GridLayout(3, 3, 3, 3));
 		panel_2.setBounds(10, 32, 258, 375);
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
 		panel_2.setBorder(blueLine);
-		contentPane.add(panel_2);
+		
 		
 		for (BiomorphPanel bp : c.getGeneration()){
+			bp.setBorder(blueLine);
+			bp.addMouseListener(ml);
 			panel_2.add(bp);
 		}
 		
-		
+		contentPane.add(panel_2);
 		
 	}
 }
