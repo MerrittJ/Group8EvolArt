@@ -6,20 +6,21 @@ import Stage2.Pair;
 
 public class EyebrowCalc {
 
-	private int eyebrowWidth = 100;
-	private int eyebrowHeight = 50;
-	private int eyebrowLines = 6; //non-functional at this time
-	private int eyebrowDistance = 100;
+	private int eyebrowWidth;// = 100;
+	private int eyebrowHeight;// = 50;
+	//private int eyebrowLines = 6; //non-functional at this time
+	private int eyebrowDistance;// = 100;
 	private int ORIGIN = 350; //put this in some higher class???
 	
 	public EyebrowCalc() {
 		
 	}
 	
-	public void setAttribs(String[] attribs){
-		eyebrowWidth = Integer.parseInt(attribs[0]);
-		eyebrowHeight = Integer.parseInt(attribs[1]);
-		eyebrowLines = Integer.parseInt(attribs[2]);
+	public void setAttribs(int[] attribs){
+		eyebrowWidth = attribs[0];
+		eyebrowHeight = attribs[1];
+		eyebrowDistance = attribs[2];
+		
 	}
 	
 	public int getEyebrowWidth() {
@@ -30,8 +31,8 @@ public class EyebrowCalc {
 		return eyebrowHeight;
 	}
 	
-	public int getEyebrowLines() {
-		return eyebrowLines;
+	public int getEyebrowDistance() {
+		return eyebrowDistance;
 	}
 	
 	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getEyebrowPoints(){

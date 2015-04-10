@@ -8,19 +8,21 @@ import Stage2.Pair;
 public class EyeCalc {
 
 	private int ORIGIN = 350;
-	private int eyeWidth = 95;
-	private int eyeHeight = 50;
-	private int eyePoints = 8;
+	private int eyeWidth;// = 95;
+	private int eyeHeight;// = 50;
+	private int eyePoints;// = 8;
 	//private int eyeRadius;
-	private int xDistance = 100;
+	private int xDistance;// = 100;
 
 	public EyeCalc() {
 
 	}
 
-	public void setAttribs(String[] attribs){
-		eyeWidth = (Integer.parseInt(attribs[0]));
-		eyeHeight = Integer.parseInt(attribs[1]);
+	public void setAttribs(int[] attribs){
+		eyeWidth = attribs[0];
+		eyeHeight = attribs[1];
+		eyePoints = attribs[2];
+		xDistance = attribs[3];
 	}
 
 	public int getEyeWidth() {

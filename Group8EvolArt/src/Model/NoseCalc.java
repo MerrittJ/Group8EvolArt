@@ -6,18 +6,21 @@ import Stage2.Pair;
 
 public class NoseCalc {
 
-	private int yOffset = -100; //reference from bottom of nose
-	private int noseLength = 20; //negative number to switch nose direction?
-	private int noseRise = 10; //how 'upturned' the nose is
-	private int noseHeight = 80; //height of nose from top to bottom
+	private int yOffset;// = -100; //reference from bottom of nose
+	private int noseLength;// = 20; //negative number to switch nose direction?
+	private int noseRise;// = 10; //how 'upturned' the nose is
+	private int noseHeight;// = 80; //height of nose from top to bottom
 	private int ORIGIN = 350;
 	
 	public NoseCalc(){
 		
 	}
 	
-	public void setAttribs(){
-		
+	public void setAttribs(int[] attribs){
+		yOffset = attribs[0];
+		noseLength = attribs[1];
+		noseRise = attribs[2];
+		noseHeight = attribs[3];
 	}
 
 	public int getyOffset() {

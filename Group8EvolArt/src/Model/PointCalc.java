@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 import java.util.Random;
 
+import Stage2.DNA;
 import Stage2.Pair;
 
 /**
@@ -34,27 +35,22 @@ public class PointCalc {
 	 * Main drawing method
 	 */
 	public PointCalc(){
-		// set initial point to draw from at centre of frame
-		resetToOrigin();
 		 hc = new HeadCalc();
 		 ec = new EyeCalc();
 		 ebc = new EyebrowCalc();
 		 nc = new NoseCalc();
 	}
 
-	public void supplyDNA(String[] dna){
-		String[] headAttribs = new String[3];
-		System.arraycopy(dna, 0, headAttribs, 0, 3);
-		
-		String[] eyeAttribs = new String[3];
-		System.arraycopy(dna, 3, eyeAttribs, 0, 2);
-		
-		String[] eyebrowAttribs = new String[3];
-		System.arraycopy(dna, 5, eyebrowAttribs, 0, 2);
+	public void supplyDNA(DNA dna){
+		int[] headAttribs = dna.getHeadAttribs();
+		int[] eyeAttribs = dna.getEyeAttribs();
+		int[] eyebrowAttribs = dna.getEyebrowAttribs();
+		int[] noseAttribs = dna.getNoseAttribs();
 		
 		hc.setAttribs(headAttribs);
 		ec.setAttribs(eyeAttribs);
 		ebc.setAttribs(eyebrowAttribs);
+		nc.setAttribs(noseAttribs);
 	}
 	
 	public Polygon getHeadShape(){
@@ -67,53 +63,6 @@ public class PointCalc {
 	
 	public int getHeadLines(){
 		return hc.getHeadPoints();
-	}
-	
-	public void calcNextPoints() {
-		calcNextX();
-		calcNextY();
-		calcNextXm();
-	} 
-
-	public void calcNextX(){
-		
-		Random rnd = new Random();
-		currentX = rnd.nextInt(currentX+50);
-	}
-	
-	public void calcNextY(){
-		
-		Random rnd = new Random();
-		currentY = rnd.nextInt(currentY+50);
-	}
-	
-	public void calcNextXm(){
-		
-		if (currentX > ORIGIN) {
-			currentXm = ORIGIN - Math.abs(ORIGIN - currentX);
-		}
-		else if (currentX < ORIGIN) {
-			currentXm = ORIGIN + Math.abs(ORIGIN - currentX);
-		}
-		else if (currentX == ORIGIN) {
-			currentXm = currentX;
-		}  
-	}
-	
-	public void updatePrev(){
-		previousX = currentX;
-		previousY = currentY;
-		previousXm = currentXm;
-	}
-	
-	public void resetToOrigin() {
-		previousX = ORIGIN;
-		previousY = ORIGIN;
-		previousXm = ORIGIN;
-
-		currentX = ORIGIN; 
-		currentY = ORIGIN; 
-		currentXm = ORIGIN;
 	}
 
 	public int getCurrentX() {

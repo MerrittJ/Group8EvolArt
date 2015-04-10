@@ -9,9 +9,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -126,8 +130,6 @@ public class Gui extends JFrame {
 		panel.setBorder(blackLine);
 		if (ml.getBiomorphPanel() != null){
 			panel.add(ml.getBiomorphPanel());
-			System.out.print("lol");
-			panel.revalidate();
 		}
 		contentPane.add(panel);
 		
@@ -143,6 +145,7 @@ public class Gui extends JFrame {
 		panel_2.setBounds(10, 32, 258, 375);
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
 		panel_2.setBorder(blueLine);
+		contentPane.add(panel_2);
 		
 		
 		for (BiomorphPanel bp : c.getGeneration()){
@@ -150,6 +153,7 @@ public class Gui extends JFrame {
 			bp.addMouseListener(ml);
 			panel_2.add(bp);
 		}
+		
 		
 		contentPane.add(panel_2);
 		
