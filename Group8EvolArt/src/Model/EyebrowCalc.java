@@ -41,7 +41,7 @@ public class EyebrowCalc {
 		HashMap<Integer, Pair<Integer, Integer>> eyebrow = new HashMap<Integer, Pair<Integer, Integer>>();
 		HashMap<Integer, Pair<Integer, Integer>> eyebrowM = new HashMap<Integer, Pair<Integer, Integer>>();
 		
-		//draw right eyebrow
+		//draw right eyebrow (2 points)
 		Pair<Integer, Integer> ebr = new Pair<Integer, Integer>();
 		ebr.x = ORIGIN + (eyebrowDistance / 2);
 		ebr.y = ORIGIN - 100; //some starting point???
@@ -52,7 +52,7 @@ public class EyebrowCalc {
 		ebr2.y = ebr.y - eyebrowHeight;
 		eyebrow.put(1, ebr2);
 		
-		//draw left
+		//draw left (2 points)
 		Pair<Integer, Integer> ebl = new Pair<Integer, Integer>();
 		ebl.x = ORIGIN - (eyebrowDistance / 2);
 		ebl.y = ebr.y;

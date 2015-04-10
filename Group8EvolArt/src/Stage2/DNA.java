@@ -11,6 +11,7 @@ import java.util.List;
 public class DNA {
 	
 	String dna;
+	String[] split;
 	
 	public DNA(ArrayList<Integer> head, ArrayList<Integer> eyes, ArrayList<Integer> eyebrows, ArrayList<Integer> nose){
 		
@@ -32,14 +33,16 @@ public class DNA {
 		for (int value : nose){
 			dna.concat(Integer.toString(value));
 		}
+		
+		//splits dna string into chunks of 3 (each attribute value)
+		split = dna.split("(?<=\\G...)");
 	}
 	
 	public int[] getHeadAttribs(){
 		int[] result = new int[2];
-		String[] value = dna.split("");
 		int i = 0;
 		while (i < 3){
-			result[i]= Integer.parseInt(value[i]);
+			result[i]= Integer.parseInt(split[i]);
 			i++;
 		}
 		return result;
@@ -47,10 +50,9 @@ public class DNA {
 	
 	public int[] getEyeAttribs(){
 		int[] result = new int[3];
-		String[] value = dna.split("");
 		int i = 3;
 		while (i < 7){
-			result[i]= Integer.parseInt(value[i]);
+			result[i]= Integer.parseInt(split[i]);
 			i++;
 		}
 		return result;
@@ -58,10 +60,9 @@ public class DNA {
 	
 	public int[] getEyebrowAttribs(){
 		int[] result = new int[2];
-		String[] value = dna.split("");
 		int i = 7;
 		while (i < 10){
-			result[i]= Integer.parseInt(value[i]);
+			result[i]= Integer.parseInt(split[i]);
 			i++;
 		}
 		return result;
@@ -69,10 +70,19 @@ public class DNA {
 	
 	public int[] getNoseAttribs(){
 		int[] result = new int[3];
-		String[] value = dna.split("");
 		int i = 10;
 		while (i < 14){
-			result[i]= Integer.parseInt(value[i]);
+			result[i]= Integer.parseInt(split[i]);
+			i++;
+		}
+		return result;
+	}
+	
+	public int[] getMouthAttribs(){
+		int[] result = new int[3];
+		int i = 14;
+		while (i < 17){
+			result[i]= Integer.parseInt(split[i]);
 			i++;
 		}
 		return result;

@@ -19,23 +19,31 @@ public class BiomorphPanel extends JPanel{
 		Graphics2D g2d = (Graphics2D) g;
 		
 		//draw head
-		Polygon hPoints = pc.getHeadShape();
+		Polygon hPoints = pc.getHeadPoints();
 		g2d.drawPolygon(hPoints);
-		
-		//draw eyebrows
-		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> ebPoints = pc.getEyebrowPoints();
-		g2d.drawLine(ebPoints.x.get(0).x, ebPoints.x.get(0).y, ebPoints.x.get(1).x, ebPoints.x.get(1).y);
-		g2d.drawLine(ebPoints.y.get(0).x, ebPoints.y.get(0).y, ebPoints.y.get(1).x, ebPoints.y.get(1).y);
 		
 		//draw eyes
 		Pair<Polygon, Polygon> ePoints = pc.getAllEyePoints();
 		g2d.drawPolygon(ePoints.x);
 		g2d.drawPolygon(ePoints.y);
 		
+		//draw eyebrows
+		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> ebPoints = pc.getEyebrowPoints();
+		g2d.drawLine(ebPoints.x.get(0).x, ebPoints.x.get(0).y, ebPoints.x.get(1).x, ebPoints.x.get(1).y);
+		g2d.drawLine(ebPoints.y.get(0).x, ebPoints.y.get(0).y, ebPoints.y.get(1).x, ebPoints.y.get(1).y);
+
 		//draw nose
 		HashMap<Integer, Pair<Integer, Integer>> nPoints = pc.getNosePoints();
 		g2d.drawLine(nPoints.get(0).x, nPoints.get(0).y, nPoints.get(1).x, nPoints.get(1).y);
 		g2d.drawLine(nPoints.get(1).x, nPoints.get(1).y, nPoints.get(2).x, nPoints.get(2).y);
+		
+		//draw mouth
+		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> mPoints = pc.getMouthPoints();
+		g2d.drawLine(mPoints.x.get(0).x, mPoints.x.get(0).y, mPoints.x.get(1).x, mPoints.x.get(1).y);
+		g2d.drawLine(mPoints.x.get(1).x, mPoints.x.get(1).y, mPoints.x.get(2).x, mPoints.x.get(2).y);
+		
+		g2d.drawLine(mPoints.y.get(0).x, mPoints.y.get(0).y, mPoints.y.get(1).x, mPoints.y.get(1).y);
+		g2d.drawLine(mPoints.y.get(1).x, mPoints.y.get(1).y, mPoints.y.get(2).x, mPoints.y.get(2).y);
 	}
 	
 	 @Override

@@ -18,18 +18,12 @@ public class PointCalc {
 	 * Variable to dictate centre of drawing frame
 	 */
 	private static final int ORIGIN = 175*2;
-
-	private int previousX;
-	private int previousY;
-	private int previousXm;
-	private int currentX; 
-	private int currentY; 
-	private int currentXm;
 	
 	private HeadCalc hc;
 	private EyeCalc ec;
 	private EyebrowCalc ebc;
 	private NoseCalc nc;
+	private MouthCalc mc;
 
 	/**
 	 * Main drawing method
@@ -39,6 +33,7 @@ public class PointCalc {
 		 ec = new EyeCalc();
 		 ebc = new EyebrowCalc();
 		 nc = new NoseCalc();
+		 mc = new MouthCalc();
 	}
 
 	public void supplyDNA(DNA dna){
@@ -46,55 +41,34 @@ public class PointCalc {
 		int[] eyeAttribs = dna.getEyeAttribs();
 		int[] eyebrowAttribs = dna.getEyebrowAttribs();
 		int[] noseAttribs = dna.getNoseAttribs();
+		int[] mouthAttribs = dna.getMouthAttribs();
 		
 		hc.setAttribs(headAttribs);
 		ec.setAttribs(eyeAttribs);
 		ebc.setAttribs(eyebrowAttribs);
 		nc.setAttribs(noseAttribs);
+		mc.setAttribs(mouthAttribs);
 	}
 	
-	public Polygon getHeadShape(){
+	public Polygon getHeadPoints(){
+		//not headPoints due to that being an attrib!!!
 		return hc.getHeadShape();
+	}
+	
+	public Pair<Polygon, Polygon> getAllEyePoints(){
+		return ec.getAllEyePoints();
+	}
+	
+	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getEyebrowPoints() {
+		return ebc.getEyebrowPoints();
 	}
 	
 	public HashMap<Integer, Pair<Integer, Integer>> getNosePoints(){
 		return nc.getNosePoints();
 	}
 	
-	public int getHeadLines(){
-		return hc.getHeadPoints();
-	}
-
-	public int getCurrentX() {
-		return currentX;
-	}    
-
-	public int getCurrentY() {
-		return currentY;
-	}
-
-	public int getCurrentXm() {
-		return currentXm;
-	}
-
-	public int getPreviousX() {
-		return previousX;
-	}    
-
-	public int getPreviousY() {
-		return previousY;
-	}
-
-	public int getPreviousXm() {
-		return previousXm;
-	}
-
-	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getEyebrowPoints() {
-		return ebc.getEyebrowPoints();
-	}
 	
-	public Pair<Polygon, Polygon> getAllEyePoints(){
-		return ec.getAllEyePoints();
+	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getMouthPoints(){
+		return mc.getMouthPoints();
 	}
-
 }
