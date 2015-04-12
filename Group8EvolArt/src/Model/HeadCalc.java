@@ -53,10 +53,4 @@ public class HeadCalc {
 	    }
 	    return result;
 	}
-	
-	public Ellipse2D getHeadShapeOld(){
-		Ellipse2D elip = new Ellipse2D.Double();
-		elip.setFrameFromCenter(ORIGIN, ORIGIN, (ORIGIN - (headWidth/2)), (ORIGIN - (headHeight/2)));
-		return elip;
-	}
 }
