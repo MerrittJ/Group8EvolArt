@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
@@ -23,44 +24,47 @@ import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import Stage2.BiomorphPanel;
+
 /**
  * @see http://stackoverflow.com/a/25170471/230513
  */
 public class ListDisplayPanel extends Component{
 
-    private static final Icon icon = UIManager.getIcon("html.pendingImage");
+	//private static final Icon icon = UIManager.getIcon("html.pendingImage");
 
     private ListPanel listPanel = new ListPanel();
-    private DisplayPanel displayPanel1 = new DisplayPanel();
-    private DisplayPanel displayPanel2 = new DisplayPanel();
+    private BiomorphPanel displayPanel1 = new BiomorphPanel();
+    private BiomorphPanel displayPanel2 = new BiomorphPanel();
+    private Icon icon = displayPanel1.getIcon();
     private JPanel dpHold = new JPanel();
     
-    private class DisplayPanel extends JPanel {
-
-        private static final int SIZE = 256;
-        private JLabel label = new JLabel();
-
-        public DisplayPanel() {
-            this.add(label);
-        }
-
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            BufferedImage img = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
-            Graphics2D temp = (Graphics2D) img.getGraphics();
-            icon.paintIcon(this, temp, 0, 0);
-            temp.dispose();
-            Graphics2D g2d = (Graphics2D) g;
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-        }
-
-        @Override
-        public Dimension getPreferredSize() {
-            return new Dimension(SIZE, SIZE);
-        }
-    }
+//    private class DisplayPanel extends JPanel {
+//
+//        private static final int SIZE = 256;
+//        private JLabel label = new JLabel();
+//
+//        public DisplayPanel() {
+//            this.add(label);
+//        }
+//
+//        @Override
+//        protected void paintComponent(Graphics g) {
+//            super.paintComponent(g);
+//            BufferedImage img = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+//            Graphics2D temp = (Graphics2D) img.getGraphics();
+//            icon.paintIcon(this, temp, 0, 0);
+//            temp.dispose();
+//            Graphics2D g2d = (Graphics2D) g;
+//            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//            g2d.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+//        }
+//
+//        @Override
+//        public Dimension getPreferredSize() {
+//            return new Dimension(SIZE, SIZE);
+//        }
+//    }
 
     private class ListPanel extends JPanel {
 
@@ -102,8 +106,8 @@ public class ListDisplayPanel extends Component{
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
-                    displayPanel1.label.setText((String) dlm.getElementAt(e.getLastIndex()));
-                    displayPanel2.label.setText((String) dlm.getElementAt(e.getLastIndex()));
+                    displayPanel1.getLabel().setText((String) dlm.getElementAt(e.getLastIndex()));
+                    displayPanel2.getLabel().setText((String) dlm.getElementAt(e.getLastIndex()));
                 }
             }
         }
