@@ -3,9 +3,6 @@ package Model;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.geom.Ellipse2D;
-import java.util.HashMap;
-
-import Stage2.Pair;
 
 public class HeadCalc {
 
