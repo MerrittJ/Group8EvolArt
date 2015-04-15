@@ -8,8 +8,8 @@ import Stage2.Pair;
 public class EyeCalc {
 
 	private int ORIGIN = 350;
-	private int eyeWidth;// = 95;
-	private int eyeHeight;// = 50;
+	private int eyeWidth; //= 95;
+	private int eyeHeight; //= 50;
 	private int eyePoints;// = 8;
 	//private int eyeRadius;
 	private int xDistance;// = 100;

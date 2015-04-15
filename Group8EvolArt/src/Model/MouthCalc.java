@@ -7,8 +7,8 @@ import Stage2.Pair;
 public class MouthCalc {
 
 	private int mouthMidWidth;// = 50;
-	private int mouthSideWidth;// = 50;
-	private int mouthHeight;// = 50; //positive smile, negative frown
+	private int mouthSideWidth; // = 50;
+	private int mouthHeight = 50; //positive smile, negative frown
 	private int ORIGIN = 350;
 	
 	public MouthCalc(){

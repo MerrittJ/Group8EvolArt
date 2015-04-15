@@ -13,8 +13,10 @@ import Model.PointCalc;
 public class BiomorphPanel extends JPanel{
 	
 	PointCalc pc = new PointCalc();
+	DNAFactory d = new DNAFactory();
 	
 	private void doDrawing(Graphics g){
+//		pc.supplyDNA(d.generateDNA());
 		
 		Graphics2D g2d = (Graphics2D) g;
 		

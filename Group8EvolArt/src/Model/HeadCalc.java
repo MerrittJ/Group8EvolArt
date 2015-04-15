@@ -10,9 +10,9 @@ import Stage2.Pair;
 public class HeadCalc {
 
 	private int ORIGIN = 350;
-	private int headPoints;// = 10;
-	private int headWidth;// = 300;
-	private int headHeight;// = 500;
+	private int headPoints; // = 10;
+	private int headWidth ;// = 300;
+	private int headHeight; //= 500;
 	
 	public HeadCalc() {
 		

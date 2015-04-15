@@ -6,11 +6,11 @@ import Stage2.Pair;
 
 public class EyebrowCalc {
 
-	private int eyebrowWidth;// = 100;
-	private int eyebrowHeight;// = 50;
+	private int eyebrowWidth; //= 100;
+	private int eyebrowHeight; // = 50;
 	//private int eyebrowLines = 6; //non-functional at this time
-	private int eyebrowDistance;// = 100;
-	private int ORIGIN = 350; //put this in some higher class???
+	private int eyebrowDistance; // = 100;
+	private int ORIGIN;// = 350; //put this in some higher class???
 	
 	public EyebrowCalc() {
 		

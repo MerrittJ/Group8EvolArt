@@ -12,6 +12,7 @@ import Stage2.Pair;
  * @author Josh Merritt
  *
  */
+
 public class PointCalc {
 
 	/**
@@ -28,6 +29,7 @@ public class PointCalc {
 	/**
 	 * Main drawing method
 	 */
+	
 	public PointCalc(){
 		 hc = new HeadCalc();
 		 ec = new EyeCalc();
