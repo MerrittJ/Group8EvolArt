@@ -35,36 +35,8 @@ public class ListDisplayPanel extends Component{
 
     private ListPanel listPanel = new ListPanel();
     private BiomorphPanel displayPanel1 = new BiomorphPanel();
-    private BiomorphPanel displayPanel2 = new BiomorphPanel();
+  //  private BiomorphPanel displayPanel2 = new BiomorphPanel();
     private Icon icon = displayPanel1.getIcon();
-    private JPanel dpHold = new JPanel();
-    
-//    private class DisplayPanel extends JPanel {
-//
-//        private static final int SIZE = 256;
-//        private JLabel label = new JLabel();
-//
-//        public DisplayPanel() {
-//            this.add(label);
-//        }
-//
-//        @Override
-//        protected void paintComponent(Graphics g) {
-//            super.paintComponent(g);
-//            BufferedImage img = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
-//            Graphics2D temp = (Graphics2D) img.getGraphics();
-//            icon.paintIcon(this, temp, 0, 0);
-//            temp.dispose();
-//            Graphics2D g2d = (Graphics2D) g;
-//            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//            g2d.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-//        }
-//
-//        @Override
-//        public Dimension getPreferredSize() {
-//            return new Dimension(SIZE, SIZE);
-//        }
-//    }
 
     private class ListPanel extends JPanel {
 
@@ -107,7 +79,6 @@ public class ListDisplayPanel extends Component{
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
                     displayPanel1.getLabel().setText((String) dlm.getElementAt(e.getLastIndex()));
-                    displayPanel2.getLabel().setText((String) dlm.getElementAt(e.getLastIndex()));
                 }
             }
         }
@@ -118,10 +89,10 @@ public class ListDisplayPanel extends Component{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JSplitPane jsp = new JSplitPane();
         jsp.setLeftComponent(new JScrollPane(listPanel));
-        JSplitPane jsp2 = new JSplitPane();
-        jsp2.setTopComponent(displayPanel1);
-        jsp2.setBottomComponent(displayPanel2);
-        jsp.setRightComponent(jsp2);
+       // JSplitPane jsp2 = new JSplitPane();
+       // jsp2.setTopComponent(displayPanel1);
+       // jsp2.setBottomComponent(displayPanel2);
+        jsp.setRightComponent(displayPanel1);
         f.add(jsp);
         f.pack();
         f.setLocationRelativeTo(null);
