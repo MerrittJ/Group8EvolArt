@@ -1,9 +1,6 @@
 package Model;
 import java.awt.Polygon;
-import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
-import java.util.Random;
-
 import Stage2.DNA;
 import Stage2.Pair;
 
@@ -18,7 +15,6 @@ public class PointCalc {
 	/**
 	 * Variable to dictate centre of drawing frame
 	 */
-	private static final int ORIGIN = 175*2;
 	
 	private HeadCalc hc;
 	private EyeCalc ec;

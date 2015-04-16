@@ -10,7 +10,7 @@ public class EyebrowCalc {
 	private int eyebrowHeight; // = 50;
 	//private int eyebrowLines = 6; //non-functional at this time
 	private int eyebrowDistance; // = 100;
-	private int ORIGIN;// = 350; //put this in some higher class???
+	private int ORIGIN = 350; //put this in some higher class???
 	
 	public EyebrowCalc() {
 		
