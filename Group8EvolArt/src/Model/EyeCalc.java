@@ -5,9 +5,8 @@ import java.awt.Polygon; //has contains() method, helpful for boundary checks!
 
 import Stage2.Pair;
 
-public class EyeCalc {
+public class EyeCalc extends AbstractCalc {
 
-	private int ORIGIN = 350;
 	private int eyeWidth; //= 95;
 	private int eyeHeight; //= 50;
 	private int eyePoints;// = 8;

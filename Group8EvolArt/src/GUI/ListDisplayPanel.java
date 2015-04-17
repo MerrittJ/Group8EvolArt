@@ -84,7 +84,7 @@ public class ListDisplayPanel extends Component{
         }
     }
 
-    private void display() {
+    public void display() {
         JFrame f = new JFrame("Test");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JSplitPane jsp = new JSplitPane();

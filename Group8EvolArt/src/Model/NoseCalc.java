@@ -4,14 +4,12 @@ import java.util.HashMap;
 
 import Stage2.Pair;
 
-public class NoseCalc {
+public class NoseCalc extends AbstractCalc{
 
 	private int yOffset;// = -100; //reference from bottom of nose
 	private int noseLength;// = 20; //negative number to switch nose direction?
 	private int noseRise;// = 10; //how 'upturned' the nose is
 	private int noseHeight ;//= 80; //height of nose from top to bottom
-
-	private int ORIGIN = 350;
 	
 	public NoseCalc(){
 		

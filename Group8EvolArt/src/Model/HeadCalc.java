@@ -4,9 +4,8 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.geom.Ellipse2D;
 
-public class HeadCalc {
+public class HeadCalc extends AbstractCalc{
 
-	private int ORIGIN = 350;
 	private int headPoints; // = 10;
 	private int headWidth ;// = 300;
 	private int headHeight; //= 500;

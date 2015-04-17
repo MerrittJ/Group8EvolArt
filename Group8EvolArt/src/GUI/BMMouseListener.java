@@ -11,7 +11,7 @@ public class BMMouseListener implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		bp = (BiomorphPanel) e.getComponent();
+		new ListDisplayPanel().display();
 		//System.out.println("lol");
 	}
 	

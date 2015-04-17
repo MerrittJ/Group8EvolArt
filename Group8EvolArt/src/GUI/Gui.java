@@ -130,92 +130,48 @@ public class Gui extends JFrame {
 		contentPane.add(label_2);
 		
 		//bio1
-		JPanel panel = new JPanel();
-		panel.setBounds(412, 32, 178, 189);
+		JPanel selectedBio1 = new JPanel();
+		selectedBio1.setBounds(412, 32, 178, 189);
 		Border blackLine = BorderFactory.createLineBorder(Color.black);
-		panel.setBorder(blackLine);
+		selectedBio1.setBorder(blackLine);
+		selectedBio1.addMouseListener(ml);
 		if (ml.getBiomorphPanel() != null){
-			panel.add(ml.getBiomorphPanel());
+			selectedBio1.add(ml.getBiomorphPanel());
 		}
-		contentPane.add(panel);
+		contentPane.add(selectedBio1);
 		
 		//bio2
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(412, 265, 178, 189);
+		JPanel selectedBio2 = new JPanel();
+		selectedBio2.setBounds(412, 265, 178, 189);
 		Border redLine = BorderFactory.createLineBorder(Color.red);
-		panel_1.setBorder(redLine);
-		contentPane.add(panel_1);
+		selectedBio2.setBorder(redLine);
+		selectedBio2.addMouseListener(ml);
+		contentPane.add(selectedBio2);
 		
 		//generation panel
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(10, 31, 376, 354);
+		JPanel generationPanel = new JPanel();
+		generationPanel.setBackground(Color.WHITE);
+		generationPanel.setBounds(10, 31, 376, 354);
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
-		panel_2.setBorder(new LineBorder(Color.BLACK, 3));
-		contentPane.add(panel_2);
+		generationPanel.setBorder(new LineBorder(Color.BLACK, 3));
+		contentPane.add(generationPanel);
 		
 		
 		for (BiomorphPanel bp : c.getGeneration()){
 			bp.setBorder(blueLine);
 			bp.addMouseListener(ml);
-			panel_2.add(bp);
+			generationPanel.add(bp);
 		}
 		
 		
-		contentPane.add(panel_2);
-		panel_2.setLayout(null);
+		contentPane.add(generationPanel);
+		generationPanel.setLayout(null);
 		for (BiomorphPanel bp : c.getGeneration()){
 			bp.setBorder(blueLine);
 			bp.addMouseListener(ml);
-			panel_2.add(bp);
+			generationPanel.add(bp);
 		}
-		contentPane.add(panel_2);
-		
-		JPanel panel_11 = new JPanel();
-		panel_11.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_11.setBounds(255, 217, 111, 92);
-		panel_2.add(panel_11);
-		
-		JPanel panel_12 = new JPanel();
-		panel_12.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_12.setBounds(131, 217, 111, 92);
-		panel_2.add(panel_12);
-		
-		JPanel panel_13 = new JPanel();
-		panel_13.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_13.setBounds(10, 217, 111, 92);
-		panel_2.add(panel_13);
-		
-		JPanel panel_9 = new JPanel();
-		panel_9.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_9.setBounds(255, 114, 111, 92);
-		panel_2.add(panel_9);
-		
-		JPanel panel_10 = new JPanel();
-		panel_10.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_10.setBounds(131, 114, 111, 92);
-		panel_2.add(panel_10);
-		
-		JPanel panel_14 = new JPanel();
-		panel_14.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_14.setBounds(10, 114, 111, 92);
-		panel_2.add(panel_14);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_3.setBounds(255, 11, 111, 92);
-		panel_2.add(panel_3);
-		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_4.setBounds(131, 11, 111, 92);
-		panel_2.add(panel_4);
-		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_5.setBounds(10, 11, 111, 92);
-		panel_2.add(panel_5);
-		
+		contentPane.add(generationPanel);
 		
 		
 	}
