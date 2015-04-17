@@ -2,24 +2,17 @@ package GUI;
 
 
 import java.awt.Color;
-
-
-
-
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.ListCellRenderer;
-import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
@@ -30,11 +23,11 @@ import java.awt.Label;
 import java.awt.Font;
 import java.awt.Panel;
 
-import javax.swing.border.LineBorder;
-
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel selectedBio1;
+	private JPanel selectedBio2;
 
 	/**
 	 * Launch the application.
@@ -64,7 +57,7 @@ public class Gui extends JFrame {
 		
 		setTitle("BIOMORPH GENERATOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 767, 577);
+		setBounds(100, 100, 634, 577);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -103,25 +96,25 @@ public class Gui extends JFrame {
 				open.setVisible(true);
 			}
 		});
-		btnHelp.setBounds(629, 11, 112, 47);
+		btnHelp.setBounds(498, 11, 112, 47);
 		contentPane.add(btnHelp);
 		
 		JButton btnStartTracking = new JButton("START TRACKING");
-		btnStartTracking.setBounds(604, 163, 137, 47);
+		btnStartTracking.setBounds(473, 163, 137, 47);
 		contentPane.add(btnStartTracking);
 		
 		JButton btnStopTracking = new JButton("STOP TRACKING");
-		btnStopTracking.setBounds(604, 221, 137, 47);
+		btnStopTracking.setBounds(473, 221, 137, 47);
 		contentPane.add(btnStopTracking);
 		
 		Label label = new Label("Biomorph 1");
 		label.setFont(new Font("Dialog", Font.BOLD, 14));
-		label.setBounds(410, 11, 94, 14);
+		label.setBounds(303, 11, 94, 14);
 		contentPane.add(label);
 		
 		Label label_1 = new Label("Biomorph 2");
 		label_1.setFont(new Font("Dialog", Font.BOLD, 14));
-		label_1.setBounds(412, 244, 94, 14);
+		label_1.setBounds(303, 245, 94, 14);
 		contentPane.add(label_1);
 		
 		Label label_2 = new Label("Generation of Artwork");
@@ -130,31 +123,25 @@ public class Gui extends JFrame {
 		contentPane.add(label_2);
 		
 		//bio1
-		JPanel selectedBio1 = new JPanel();
-		selectedBio1.setBounds(412, 32, 178, 189);
+		selectedBio1 = new JPanel();
+		selectedBio1.setBounds(287, 32, 178, 189);
+		//selectedBio1.
 		Border blackLine = BorderFactory.createLineBorder(Color.black);
 		selectedBio1.setBorder(blackLine);
-		selectedBio1.addMouseListener(ml);
-		if (ml.getBiomorphPanel() != null){
-			selectedBio1.add(ml.getBiomorphPanel());
-		}
 		contentPane.add(selectedBio1);
 		
 		//bio2
-		JPanel selectedBio2 = new JPanel();
-		selectedBio2.setBounds(412, 265, 178, 189);
+		selectedBio2 = new JPanel();
+		selectedBio2.setBounds(287, 265, 178, 189);
 		Border redLine = BorderFactory.createLineBorder(Color.red);
 		selectedBio2.setBorder(redLine);
-		selectedBio2.addMouseListener(ml);
 		contentPane.add(selectedBio2);
 		
 		//generation panel
-		JPanel generationPanel = new JPanel();
-		generationPanel.setBackground(Color.WHITE);
-		generationPanel.setBounds(10, 31, 376, 354);
+		JPanel generationPanel = new JPanel(new GridLayout(3, 3, 3, 3));
+		generationPanel.setBounds(10, 32, 258, 375);
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
-		generationPanel.setBorder(new LineBorder(Color.BLACK, 3));
-		contentPane.add(generationPanel);
+		generationPanel.setBorder(blueLine);
 		
 		
 		for (BiomorphPanel bp : c.getGeneration()){
@@ -163,16 +150,50 @@ public class Gui extends JFrame {
 			generationPanel.add(bp);
 		}
 		
-		
 		contentPane.add(generationPanel);
-		generationPanel.setLayout(null);
-		for (BiomorphPanel bp : c.getGeneration()){
-			bp.setBorder(blueLine);
-			bp.addMouseListener(ml);
-			generationPanel.add(bp);
-		}
-		contentPane.add(generationPanel);
-		
 		
 	}
+	
+	private class BMMouseListener implements MouseListener{
+
+		private BiomorphPanel bp;
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			selectedBio1.add(e.getComponent());
+			System.out.println("" + e.getComponent().toString());
+			selectedBio1.repaint();
+		}
+		
+		public BiomorphPanel getBiomorphPanel(){
+			return bp;
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	}
 }
+
+

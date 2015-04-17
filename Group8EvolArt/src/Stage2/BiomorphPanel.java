@@ -46,8 +46,8 @@ public class BiomorphPanel extends JPanel{
 	 public void paintComponent(Graphics g) {       
 		 Graphics2D g2 = (Graphics2D) g;
 		 //scaling and translating to fit into mini panels in GUI
-		// g2.scale(0.15, 0.15);
-		 //g2.translate(-100.0, 0.0);
+		 g2.scale(0.15, 0.15);
+		// g2.translate(-150.0, -100.0);
 		 super.paintComponent(g2);
 	     doDrawing(g2);
 	    }    
@@ -60,7 +60,7 @@ public class BiomorphPanel extends JPanel{
 	 public void drawAll(Graphics2D g2d, double x, double y){
 			
 		 g2d.scale(x, y);
-		 g2d.translate(-100, 0);
+		// g2d.translate(-100, 0);
 
 		 //draw head
 		 Polygon hPoints = pc.getHeadPoints();
