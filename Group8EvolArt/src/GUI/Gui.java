@@ -160,9 +160,11 @@ public class Gui extends JFrame {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			selectedBio1.add(e.getComponent());
-			System.out.println("" + e.getComponent().toString());
-			selectedBio1.repaint();
+			if (selectedBio1.getComponentCount() == 0) {
+				selectedBio1.add(e.getComponent());
+				System.out.println("" + e.getComponent().toString());
+				selectedBio1.repaint();
+			}
 		}
 		
 		public BiomorphPanel getBiomorphPanel(){
