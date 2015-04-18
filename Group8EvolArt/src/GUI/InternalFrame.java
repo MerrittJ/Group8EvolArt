@@ -1,5 +1,8 @@
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -63,7 +66,14 @@ public static void main(String[] args){
 	iFrame.setVisible(true);
 	
 	JButton btnLoadDna = new JButton("LOAD");
+	btnLoadDna.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			LoadString open = new LoadString();
+			open.setVisible(true);
+		}
+	});
 	btnLoadDna.setBounds(500, 380,112,47);
 	desktopPane.add(btnLoadDna);
 }
 }
+
