@@ -27,7 +27,8 @@ public class Gui extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel selectedBio1;
-	private JPanel selectedBio2;
+	private JPanel selectedBio2;		
+	boolean changeBioPan1;
 
 	/**
 	 * Launch the application.
@@ -51,8 +52,8 @@ public class Gui extends JFrame {
 	public Gui() {
 		
 		Control c = new Control();
-		BiomorphPanel selected1 = null;
-		BiomorphPanel selected2 = null;
+		changeBioPan1 = true;
+
 		BMMouseListener ml = new BMMouseListener();
 		
 		setTitle("BIOMORPH GENERATOR");
@@ -160,10 +161,17 @@ public class Gui extends JFrame {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			if (selectedBio1.getComponentCount() == 0) {
+			if (changeBioPan1 == true) {
 				selectedBio1.add(e.getComponent());
-				System.out.println("" + e.getComponent().toString());
+				System.out.println("y " + e.getComponent().toString());
 				selectedBio1.repaint();
+				changeBioPan1 = false;
+			}
+			else if (changeBioPan1 == false){
+				selectedBio2.add(e.getComponent());
+				System.out.println("x " + e.getComponent().toString());
+				selectedBio2.repaint();
+				changeBioPan1 = true;
 			}
 		}
 		
