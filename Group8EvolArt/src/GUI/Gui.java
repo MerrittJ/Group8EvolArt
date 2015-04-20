@@ -1,8 +1,11 @@
 package GUI;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -125,6 +128,7 @@ public class Gui extends JFrame {
 		
 		//bio1
 		selectedBio1 = new JPanel();
+		selectedBio1.setLayout(new GridBagLayout());
 		selectedBio1.setBounds(287, 32, 178, 189);
 		//selectedBio1.
 		Border blackLine = BorderFactory.createLineBorder(Color.black);
