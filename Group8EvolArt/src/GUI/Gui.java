@@ -3,6 +3,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -25,13 +26,16 @@ import Stage2.*;
 import java.awt.Label;
 import java.awt.Font;
 import java.awt.Panel;
+import java.util.ArrayList;
 
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel selectedBio1;
 	private JPanel selectedBio2;		
-	boolean changeBioPan1;
+	private boolean changeBioPan1;
+	private Pair<String, String> dnaToMutate;
+	private Control c;
 
 	/**
 	 * Launch the application.
@@ -54,7 +58,7 @@ public class Gui extends JFrame {
 	 */
 	public Gui() {
 		
-		Control c = new Control();
+		c = new Control();
 		changeBioPan1 = true;
 
 		BMMouseListener ml = new BMMouseListener();
@@ -67,27 +71,33 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("OPTIONS");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Options open = new Options();
-				open.setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(10, 460, 112, 47);
-		contentPane.add(btnNewButton);
+//		JButton btnNewButton = new JButton("OPTIONS");
+//		btnNewButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Options open = new Options();
+//				open.setVisible(true);
+//			}
+//		});
+//		btnNewButton.setBounds(10, 460, 112, 47);
+//		contentPane.add(btnNewButton);
 		
 		JButton btnMutate = new JButton("MUTATE");
 		btnMutate.setBounds(132, 460, 112, 47);
+		btnMutate.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//dnaToMutate.x = selectedBio1.getComponent(0);
+				System.out.println(((BiomorphPanel) getComponent(0)).getDNAString());
+			}
+		});
 		contentPane.add(btnMutate);
 		
-		JButton btnSave = new JButton("SAVE");
-		btnSave.setBounds(254, 460, 112, 47);
+		JButton btnSave = new JButton("HALL OF FAME");
+		btnSave.setBounds(254, 460, 130, 47);
 		contentPane.add(btnSave);
 		
-		JButton btnSaveDna = new JButton("SAVE DNA");
-		btnSaveDna.setBounds(376, 460, 112, 47);
-		contentPane.add(btnSaveDna);
+//		JButton btnSaveDna = new JButton("SAVE DNA");
+//		btnSaveDna.setBounds(376, 460, 112, 47);
+//		contentPane.add(btnSaveDna);
 		
 		JButton btnLoadDna = new JButton("LOAD DNA");
 		btnLoadDna.setBounds(498, 460, 112, 47);
@@ -103,13 +113,13 @@ public class Gui extends JFrame {
 		btnHelp.setBounds(498, 11, 112, 47);
 		contentPane.add(btnHelp);
 		
-		JButton btnStartTracking = new JButton("START TRACKING");
-		btnStartTracking.setBounds(473, 163, 137, 47);
-		contentPane.add(btnStartTracking);
+//		JButton btnStartTracking = new JButton("START TRACKING");
+//		btnStartTracking.setBounds(473, 163, 137, 47);
+//		contentPane.add(btnStartTracking);
 		
-		JButton btnStopTracking = new JButton("STOP TRACKING");
-		btnStopTracking.setBounds(473, 221, 137, 47);
-		contentPane.add(btnStopTracking);
+//		JButton btnStopTracking = new JButton("STOP TRACKING");
+//		btnStopTracking.setBounds(473, 221, 137, 47);
+//		contentPane.add(btnStopTracking);
 		
 		Label label = new Label("Biomorph 1");
 		label.setFont(new Font("Dialog", Font.BOLD, 14));

@@ -21,6 +21,7 @@ public class PointCalc {
 	private EyebrowCalc ebc;
 	private NoseCalc nc;
 	private MouthCalc mc;
+	private DNA dnaInUse;
 
 	/**
 	 * Main drawing method
@@ -40,6 +41,7 @@ public class PointCalc {
 		int[] eyebrowAttribs = dna.getEyebrowAttribs();
 		int[] noseAttribs = dna.getNoseAttribs();
 		int[] mouthAttribs = dna.getMouthAttribs();
+		dnaInUse = dna;
 		
 		hc.setAttribs(headAttribs);
 		ec.setAttribs(eyeAttribs);
@@ -68,5 +70,9 @@ public class PointCalc {
 	
 	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getMouthPoints(){
 		return mc.getMouthPoints();
+	}
+	
+	public String getDNAString(){
+		return dnaInUse.toString();
 	}
 }

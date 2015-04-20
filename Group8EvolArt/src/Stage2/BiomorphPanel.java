@@ -91,6 +91,10 @@ public class BiomorphPanel extends JPanel{
 			
 	 }
 	 
+	 public String getDNAString(){
+		 return pc.getDNAString();
+	 }
+	 
 	 private class BiomorphIcon implements Icon{
 
 		 private int size;
