@@ -128,7 +128,7 @@ public class Gui extends JFrame {
 		
 		//bio1
 		selectedBio1 = new JPanel();
-		selectedBio1.setLayout(new GridBagLayout());
+		selectedBio1.setLayout(new BorderLayout());
 		selectedBio1.setBounds(287, 32, 178, 189);
 		//selectedBio1.
 		Border blackLine = BorderFactory.createLineBorder(Color.black);
@@ -150,7 +150,7 @@ public class Gui extends JFrame {
 		
 		
 		for (BiomorphPanel bp : c.getGeneration()){
-			bp.setBorder(blueLine);
+			//bp.setBorder(blueLine);
 			bp.addMouseListener(ml);
 			generationPanel.add(bp);
 		}
@@ -166,13 +166,15 @@ public class Gui extends JFrame {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (changeBioPan1 == true) {
-				selectedBio1.add(e.getComponent());
+				selectedBio1.add(e.getComponent(), 0);
+				selectedBio1.getComponent(0).setLocation(50, 40);
 				System.out.println("y " + e.getComponent().toString());
 				selectedBio1.repaint();
 				changeBioPan1 = false;
 			}
 			else if (changeBioPan1 == false){
-				selectedBio2.add(e.getComponent());
+				selectedBio2.add(e.getComponent(), 0);
+				selectedBio2.getComponent(0).setLocation(50, 40);
 				System.out.println("x " + e.getComponent().toString());
 				selectedBio2.repaint();
 				changeBioPan1 = true;
@@ -186,7 +188,6 @@ public class Gui extends JFrame {
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
 		}
 
 		@Override

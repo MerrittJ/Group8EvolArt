@@ -60,7 +60,7 @@ public class BiomorphPanel extends JPanel{
 	 public void drawAll(Graphics2D g2d, double x, double y){
 			
 		 g2d.scale(x, y);
-		// g2d.translate(-100, 0);
+		 g2d.translate(275, 375);
 
 		 //draw head
 		 Polygon hPoints = pc.getHeadPoints();
