@@ -9,7 +9,14 @@ public class DNAFactory {
 	private Random random = new Random(); 
 	
 	public DNAFactory() {
-		
+		// arraylist of biomorphs to be shown in GUI
+		generation = new ArrayList<BiomorphPanel>();
+		int i = 0;
+		// adds 9 biomorphPanels. TODO:Separate biomorph from panel?
+		while (i < 9) {
+			generation.add(new BiomorphPanel(i,false,10));
+			i++;
+		}
 	}
 	
 	public DNA generateDNA() {

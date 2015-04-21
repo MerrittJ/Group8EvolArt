@@ -10,9 +10,50 @@ public class NoseCalc extends AbstractCalc{
 	private int noseLength;// = 20; //negative number to switch nose direction?
 	private int noseRise;// = 10; //how 'upturned' the nose is
 	private int noseHeight ;//= 80; //height of nose from top to bottom
-	
-	public NoseCalc(){
-		
+
+	public NoseCalc(int i, boolean b, int p) {
+		if (b) {
+			if (p == 1 || p==6 || p==5) {
+				if (i == 3) {
+					this.noseHeight = 75;
+				}
+				if (i == 6) {
+					this.noseHeight = 90;
+					this.noseLength = 22;
+				}
+				if (i == 7) {
+					this.noseHeight = 60;
+					this.noseLength = 18;
+				}
+			}
+			if (p == 3 || p==9 || p==7) {
+				if (i == 1) {
+					this.noseHeight = 75;
+				}
+				if (i == 5) {
+					this.noseHeight = 90;
+					this.noseLength = 22;
+				}
+				if (i == 2) {
+					this.noseHeight = 60;
+					this.noseLength = 18;
+				}
+			}
+			if (p == 2 || p==8) {
+				if (i == 3) {
+					this.noseHeight = 75;
+				}
+				if (i ==6) {
+					this.noseHeight = 90;
+					this.noseLength = 22;
+				}
+				if (i == 7) {
+					this.noseHeight = 60;
+					this.noseLength = 18;
+				}
+			}
+
+		}
 	}
 	
 	public void setAttribs(int[] attribs){

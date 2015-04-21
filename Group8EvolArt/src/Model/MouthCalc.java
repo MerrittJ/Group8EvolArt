@@ -9,9 +9,56 @@ public class MouthCalc extends AbstractCalc{
 	private int mouthMidWidth;// = 50;
 	private int mouthSideWidth; // = 50;
 	private int mouthHeight;// = 50; //positive smile, negative frown
-	
-	public MouthCalc(){
-		
+
+	/**
+	 * mouth calcutaion logic
+	 * 
+	 * @param i
+	 * @param b
+	 * @param p
+	 */
+	public MouthCalc(int i, boolean b, int p) {
+		if (!b) {
+			if (i == 7 || i == 6) {
+				this.mouthHeight = 100;
+			}
+		} else {
+			if (p == 1 || p==6 || p==9) {
+				if (i == 1) {
+					this.mouthHeight = 75;
+				}
+				if (i == 5) {
+					this.mouthHeight = 90;
+				}
+				if (i == 9) {
+					this.mouthHeight = 60;
+				}
+			}
+			if (p == 2 || p==8) {
+				if (i == 2) {
+					this.mouthHeight = 75;
+				}
+				if (i == 4) {
+					this.mouthHeight = 90;
+				}
+				if (i == 8) {
+					this.mouthHeight = 60;
+				}
+			}
+			if (p == 3 || p==7 || p==5) {
+				if (i == 4) {
+					this.mouthHeight = 75;
+				}
+				if (i == 7) {
+					this.mouthHeight = 90;
+				}
+				if (i == 9) {
+					this.mouthHeight = 60;
+				}
+			}
+
+		}
+
 	}
 	
 	public void setAttribs(int[] attribs){
@@ -71,7 +118,6 @@ public class MouthCalc extends AbstractCalc{
 		l3.x = l2.x - mouthSideWidth;
 		l3.y = l1.y - mouthHeight;
 		left.put(2, l3);
-
 		
 		allPoints.x = right;
 		allPoints.y = left;

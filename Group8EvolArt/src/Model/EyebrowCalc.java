@@ -11,7 +11,61 @@ public class EyebrowCalc extends AbstractCalc {
 	//private int eyebrowLines = 6; //non-functional at this time
 	private int eyebrowDistance; // = 100;
 	
-	public EyebrowCalc() {
+	public EyebrowCalc(int i, boolean b, int p) {
+		if (b) {
+			if (p == 1 || p==7 || p==9) {
+				if (i == 3) {
+					this.eyebrowHeight = 75;
+				}
+				if (i == 6) {
+					this.eyebrowHeight = 90;
+					this.eyebrowWidth = 150;
+				}
+				if (i == 7) {
+					this.eyebrowHeight = 60;
+					this.eyebrowWidth = 50;
+				}
+			}
+			if (p == 3 || p==8 || p==5) {
+				if (i == 1) {
+					this.eyebrowHeight = 75;
+				}
+				if (i == 5) {
+					this.eyebrowHeight = 90;
+					this.eyebrowWidth = 75;
+				}
+				if (i == 2) {
+					this.eyebrowHeight = 60;
+					this.eyebrowWidth = 80;
+				}
+			}
+			if (p == 2 || p==6) {
+				if (i == 3) {
+					this.eyebrowHeight = 75;
+				}
+				if (i ==6) {
+					this.eyebrowHeight = 90;
+					this.eyebrowWidth = 50;
+				}
+				if (i == 7) {
+					this.eyebrowHeight = 60;
+					this.eyebrowWidth = 40;
+				}
+			}
+
+		}else{
+			if (i == 3) {
+				this.eyebrowHeight = 75;
+			}
+			if (i ==6) {
+				this.eyebrowHeight = 90;
+				this.eyebrowWidth = 50;
+			}
+			if (i == 7) {
+				this.eyebrowHeight = 60;
+				this.eyebrowWidth = 40;
+			}
+		}
 		
 	}
 	

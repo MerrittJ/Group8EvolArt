@@ -13,7 +13,55 @@ public class EyeCalc extends AbstractCalc {
 	//private int eyeRadius;
 	private int xDistance;// = 100;
 
-	public EyeCalc() {
+	/**
+	 * Eye generatic calculation logic
+	 * 
+	 * @param i
+	 * @param b
+	 * @param p
+	 */
+	public EyeCalc(int i, boolean b, int p) {
+
+		if (!b) {
+			if (i == 3 || i == 4 || i == 5) {
+				this.eyeHeight = 100;
+			}
+		} else {
+			if (p == 1 || p==5 || p==7) {
+				if (i == 2) {
+					this.eyeHeight = 75;
+				}
+				if (i == 4) {
+					this.eyeHeight = 90;
+				}
+				if (i == 8) {
+					this.eyeHeight = 60;
+				}
+			}
+			if (p == 2|| p==6|| p==8) {
+				if (i == 1) {
+					this.eyeHeight = 75;
+				}
+				if (i == 5) {
+					this.eyeHeight = 90;
+				}
+				if (i == 9) {
+					this.eyeHeight = 60;
+				}
+			}
+			if (p == 3 || p==9) {
+				if (i == 3) {
+					this.eyeHeight = 75;
+				}
+				if (i == 6) {
+					this.eyeHeight = 90;
+				}
+				if (i == 8) {
+					this.eyeHeight = 60;
+				}
+			}
+			
+		}
 
 	}
 
