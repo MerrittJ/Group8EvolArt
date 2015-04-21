@@ -86,7 +86,8 @@ public class Gui extends JFrame {
 		btnMutate.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				//dnaToMutate.x = selectedBio1.getComponent(0);
-				System.out.println(((BiomorphPanel) getComponent(0)).getDNAString());
+				BiomorphPanel bp1 = (BiomorphPanel) selectedBio1.getComponent(0);
+				System.out.println(bp1.getDNAString());
 			}
 		});
 		contentPane.add(btnMutate);
@@ -174,12 +175,12 @@ public class Gui extends JFrame {
 		private BiomorphPanel bp;
 		
 		@Override
-		public void mouseClicked(MouseEvent e) {
+		public void mouseReleased(MouseEvent e) {
 			if (changeBioPan1 == true) {
 				selectedBio1.add(e.getComponent(), 0);
 				selectedBio1.getComponent(0).setLocation(50, 40);
 				System.out.println("y " + e.getComponent().toString());
-				selectedBio1.repaint();
+				//selectedBio1.repaint();
 				changeBioPan1 = false;
 			}
 			else if (changeBioPan1 == false){
@@ -189,6 +190,7 @@ public class Gui extends JFrame {
 				selectedBio2.repaint();
 				changeBioPan1 = true;
 			}
+			System.out.println("test" + changeBioPan1);
 		}
 		
 		public BiomorphPanel getBiomorphPanel(){
@@ -213,7 +215,7 @@ public class Gui extends JFrame {
 		}
 
 		@Override
-		public void mouseReleased(MouseEvent e) {
+		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
