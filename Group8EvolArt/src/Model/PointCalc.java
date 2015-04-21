@@ -12,7 +12,6 @@ import Stage2.Pair;
  * @author Josh Merritt
  *
  */
-
 public class PointCalc {
 
 	/**
@@ -25,7 +24,6 @@ public class PointCalc {
 	private EyebrowCalc ebc;
 	private NoseCalc nc;
 	private MouthCalc mc;
-	private DNA dnaInUse;
 
 	private int i;
 
@@ -35,7 +33,6 @@ public class PointCalc {
 	 * @param b 
 	 * @param p 
 	 */
-	
 	public PointCalc(int i, boolean b, int p){
 		this.i=i;
 		 hc = new HeadCalc(i,b,p);
@@ -51,7 +48,6 @@ public class PointCalc {
 		int[] eyebrowAttribs = dna.getEyebrowAttribs();
 		int[] noseAttribs = dna.getNoseAttribs();
 		int[] mouthAttribs = dna.getMouthAttribs();
-		dnaInUse = dna;
 		
 		hc.setAttribs(headAttribs);
 		ec.setAttribs(eyeAttribs);
@@ -80,9 +76,5 @@ public class PointCalc {
 	
 	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getMouthPoints(){
 		return mc.getMouthPoints();
-	}
-	
-	public String getDNAString(){
-		return dnaInUse.toString();
 	}
 }
