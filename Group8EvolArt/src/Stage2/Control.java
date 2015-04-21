@@ -13,7 +13,7 @@ public class Control {
 		int i = 0;
 		//adds 9 biomorphPanels. TODO:Separate biomorph from panel?
 		while (i < 9){
-			generation.add(new BiomorphPanel());
+			generation.add(new BiomorphPanel(i,false,10));
 			i++;
 		}
 	}

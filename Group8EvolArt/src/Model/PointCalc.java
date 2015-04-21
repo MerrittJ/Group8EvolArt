@@ -1,6 +1,9 @@
 package Model;
 import java.awt.Polygon;
+import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
+import java.util.Random;
+
 import Stage2.DNA;
 import Stage2.Pair;
 
@@ -14,6 +17,7 @@ public class PointCalc {
 	/**
 	 * Variable to dictate centre of drawing frame
 	 */
+	private static final int ORIGIN = 175*2;
 	
 	private HeadCalc hc;
 	private EyeCalc ec;
@@ -21,15 +25,21 @@ public class PointCalc {
 	private NoseCalc nc;
 	private MouthCalc mc;
 
+	private int i;
+
 	/**
 	 * Main drawing method
+	 * @param i 
+	 * @param b 
+	 * @param p 
 	 */
-	public PointCalc(){
-		 hc = new HeadCalc();
-		 ec = new EyeCalc();
-		 ebc = new EyebrowCalc();
-		 nc = new NoseCalc();
-		 mc = new MouthCalc();
+	public PointCalc(int i, boolean b, int p){
+		this.i=i;
+		 hc = new HeadCalc(i,b,p);
+		mc = new MouthCalc(i, b,p);
+		ec = new EyeCalc(i,b,p);
+		nc = new NoseCalc(i,b,p);
+		ebc = new EyebrowCalc(i,b,p);
 	}
 
 	public void supplyDNA(DNA dna){
@@ -47,7 +57,7 @@ public class PointCalc {
 	}
 	
 	public Polygon getHeadPoints(){
-		//not headPoints due to that being an attrib!!!
+
 		return hc.getHeadShape();
 	}
 	
