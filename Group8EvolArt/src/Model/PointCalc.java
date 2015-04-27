@@ -57,7 +57,7 @@ public class PointCalc {
 	}
 	
 	public Polygon getHeadPoints(){
-
+		//not headPoints due to that being an attrib!!!
 		return hc.getHeadShape();
 	}
 	

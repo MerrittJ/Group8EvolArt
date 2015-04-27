@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import Stage2.DNAFactory;
 /**
- * Class responsible for hall of fame gui.
+ * Class responsible for containing hall of fame.
  * @author Mohammed, Sheraz, Aman
  */
 public class HallOfFame extends JFrame {
@@ -31,7 +31,7 @@ public class HallOfFame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HallOfFame frame = new HallOfFame();  //create new frame for hall of fame
+					HallOfFame frame = new HallOfFame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,15 +51,15 @@ public class HallOfFame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		generationPanel.setBounds(5, 100, 258, 375);
+		generationPanel.setBounds(20, 100, 258, 375);
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
 		generationPanel.setBorder(blueLine);
 		
-		DNAFactory dnaFactory=new DNAFactory(); // create new DNA
+		DNAFactory dnaFactory=new DNAFactory();
 		
 		JButton clearButton = new JButton("Clear Hall of Fame");
-		clearButton.setBounds(5, 5, 137, 47);
-		contentPane.add(clearButton);
+		clearButton.setBounds(5, 5, 150, 10);
+		contentPane.add(clearButton,BorderLayout.PAGE_START);
 		clearButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -70,7 +70,7 @@ public class HallOfFame extends JFrame {
 		});
 
 
-		contentPane.add(generationPanel);
+		contentPane.add(generationPanel,BorderLayout.CENTER);
 	}
 
 }

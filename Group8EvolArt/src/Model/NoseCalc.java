@@ -7,14 +7,14 @@ import Stage2.Pair;
 public class NoseCalc {
 
 	private int yOffset = -100; // reference from bottom of nose
-	private int noseLength = 20; // negative number to switch nose direction?
+	private int noseLength = 20; // negative number to switch nose direction
 	private int noseRise = 10; // how 'upturned' the nose is
 	private int noseHeight = 80; // height of nose from top to bottom
 	private int ORIGIN = 350;
 
 	public NoseCalc(int i, boolean b, int p) {
 		if (b) {
-			if (p == 1 || p==6 || p==5) {
+			if (p == 1 || p == 6 || p == 5) {
 				if (i == 3) {
 					this.noseHeight = 75;
 				}
@@ -27,7 +27,7 @@ public class NoseCalc {
 					this.noseLength = 18;
 				}
 			}
-			if (p == 3 || p==9 || p==7) {
+			if (p == 3 || p == 9 || p == 7) {
 				if (i == 1) {
 					this.noseHeight = 75;
 				}
@@ -40,11 +40,11 @@ public class NoseCalc {
 					this.noseLength = 18;
 				}
 			}
-			if (p == 2 || p==8) {
+			if (p == 2 || p == 8 || p == 4) {
 				if (i == 3) {
 					this.noseHeight = 75;
 				}
-				if (i ==6) {
+				if (i == 6) {
 					this.noseHeight = 90;
 					this.noseLength = 22;
 				}

@@ -24,7 +24,7 @@ public class MouthCalc {
 				this.mouthHeight = 100;
 			}
 		} else {
-			if (p == 1 || p==6 || p==9) {
+			if (p == 1 || p == 6 || p == 9) {
 				if (i == 1) {
 					this.mouthHeight = 75;
 				}
@@ -35,7 +35,7 @@ public class MouthCalc {
 					this.mouthHeight = 60;
 				}
 			}
-			if (p == 2 || p==8) {
+			if (p == 2 || p == 8 || p == 4) {
 				if (i == 2) {
 					this.mouthHeight = 75;
 				}
@@ -46,7 +46,7 @@ public class MouthCalc {
 					this.mouthHeight = 60;
 				}
 			}
-			if (p == 3 || p==7 || p==5) {
+			if (p == 3 || p == 7 || p == 5) {
 				if (i == 4) {
 					this.mouthHeight = 75;
 				}
@@ -90,7 +90,7 @@ public class MouthCalc {
 		Pair<Integer, Integer> r1 = new Pair<Integer, Integer>();
 
 		r1.x = ORIGIN;
-		r1.y = ORIGIN + 100; // some starting point???
+		r1.y = ORIGIN + 100; // starting point
 		right.put(0, r1);
 
 		Pair<Integer, Integer> r2 = new Pair<Integer, Integer>();
@@ -107,7 +107,7 @@ public class MouthCalc {
 		Pair<Integer, Integer> l1 = new Pair<Integer, Integer>();
 
 		l1.x = ORIGIN;
-		l1.y = ORIGIN + 100; // some starting point???
+		l1.y = ORIGIN + 100; // starting point
 		left.put(0, l1);
 
 		Pair<Integer, Integer> l2 = new Pair<Integer, Integer>();

@@ -3,14 +3,11 @@ package Stage2;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
-import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import Model.PointCalc;
-
 /**
  * Class responsible for main gui.
  * @author Mohammed, Sheraz, Aman, Josh

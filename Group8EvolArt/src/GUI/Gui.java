@@ -1,3 +1,4 @@
+
 package GUI;
 
 import java.awt.BorderLayout;
@@ -10,11 +11,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -22,9 +27,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
+import util.ComponentImageCapture;
 import Stage2.BiomorphPanel;
 import Stage2.Control;
 import Stage2.DNAFactory;
+
 /**
  * Class responsible for main gui.
  * @author Mohammed, Sheraz, Aman
@@ -45,9 +52,9 @@ public class Gui extends JFrame {
 			generationPanel7, generationPanel8;
 	BMMouseListener ml = new BMMouseListener();
 	private int biomorf1Code = 1;
-	private int biomorf2Code;
 	List<Component> componentsList = new ArrayList<Component>();
 	static Gui frame;
+	private boolean openHallOfframe;
 
 	/**
 	 * Launch the application.
@@ -83,8 +90,7 @@ public class Gui extends JFrame {
 		contentPane.setLayout(null);
 
 		final HallOfFame frame = new HallOfFame();
-		frame.setVisible(true);
-
+		
 		JButton btnNewButton = new JButton("OPTIONS");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,13 +99,14 @@ public class Gui extends JFrame {
 			}
 		});
 		btnNewButton.setBounds(10, 460, 112, 47);
-		contentPane.add(btnNewButton);
+
 
 		// mutate GUI button with action
 		JButton btnMutate = new JButton("MUTATE");
+		btnMutate.setName("Mutate");
 		btnMutate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// generationPanel.removeAll();
+
 				if (selectedBio1.getComponents().length == 0
 						|| selectedBio2.getComponents().length == 0) {
 					return;
@@ -111,8 +118,6 @@ public class Gui extends JFrame {
 				selectedBio2.repaint();
 
 				// frame visible with random generation
-				System.out.println(">>>>>" + biomorf1Code);
-
 				if (biomorf1Code == 1) {
 					biomorf1Code = 2;
 					hideAllGenerationPanel();
@@ -166,6 +171,9 @@ public class Gui extends JFrame {
 			}
 		});
 
+		
+		
+		// add frames of DNA generated Faces
 		DNAFactory dnaFactory = new DNAFactory();
 		generationPanel2 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel2.setBounds(10, 32, 260, 378);
@@ -178,6 +186,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel2);
 		generationPanel2.setVisible(false);
 
+		
+		
 		generationPanel3 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel3.setBounds(10, 32, 260, 378);
 		generationPanel3.setBorder(blueLine);
@@ -188,6 +198,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel3);
 		generationPanel3.setVisible(false);
 
+		
+		
 		generationPanel4 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel4.setBounds(10, 32, 260, 378);
 		generationPanel4.setBorder(blueLine);
@@ -198,6 +210,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel4);
 		generationPanel4.setVisible(false);
 
+		
+		
 		generationPanel5 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel5.setBounds(10, 32, 260, 378);
 		generationPanel5.setBorder(blueLine);
@@ -208,6 +222,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel5);
 		generationPanel5.setVisible(false);
 
+		
+		
 		generationPanel6 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel6.setBounds(10, 32, 260, 378);
 		generationPanel6.setBorder(blueLine);
@@ -218,6 +234,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel6);
 		generationPanel6.setVisible(false);
 
+		
+		
 		generationPanel7 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel7.setBounds(10, 32, 260, 378);
 		generationPanel7.setBorder(blueLine);
@@ -228,6 +246,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel7);
 		generationPanel7.setVisible(false);
 
+		
+		
 		generationPanel8 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel8.setBounds(10, 32, 260, 378);
 		generationPanel8.setBorder(blueLine);
@@ -238,6 +258,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel8);
 		generationPanel8.setVisible(false);
 
+		
+		
 		generationPanel9 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel9.setBounds(10, 32, 260, 378);
 		generationPanel9.setBorder(blueLine);
@@ -248,6 +270,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel9);
 		generationPanel9.setVisible(false);
 
+		
+		
 		generationPanel10 = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel10.setBounds(10, 32, 260, 378);
 		generationPanel10.setBorder(blueLine);
@@ -258,6 +282,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel10);
 		generationPanel10.setVisible(false);
 
+		
+		
 		btnMutate.setBounds(132, 460, 112, 47);
 		contentPane.add(btnMutate);
 
@@ -286,14 +312,16 @@ public class Gui extends JFrame {
 
 		JButton btnStartTracking = new JButton("START TRACKING");
 		btnStartTracking.setBounds(473, 163, 137, 47);
-		contentPane.add(btnStartTracking);
+
 
 		JButton btnStopTracking = new JButton("STOP TRACKING");
 		btnStopTracking.setBounds(473, 221, 137, 47);
-		contentPane.add(btnStopTracking);
+;
 
-		// save to hall of fame button when click to move in hall of fame
+		// save to hall of fame button 
+		
 		JButton btnStopTracking1 = new JButton("Save to Hall of Fame");
+		btnStopTracking1.setName("SaveToHallFame");
 		btnStopTracking1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (totalFrame <= 9) {
@@ -352,7 +380,7 @@ public class Gui extends JFrame {
 							intFrame.add(comp);
 							componentsList.add(comp);
 							break;
-							// intFrame.getComponent(0).setLocation(50, 40);
+						
 						}
 						selectedBio1.repaint();
 						flag = false;
@@ -377,6 +405,7 @@ public class Gui extends JFrame {
 		contentPane.add(btnStopTracking1);
 
 		JButton clearButton = new JButton("Clear Hall of Fame");
+		clearButton.setName("ClearHallFame");
 		clearButton.setBounds(473, 338, 137, 47);
 		contentPane.add(clearButton);
 
@@ -386,7 +415,83 @@ public class Gui extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.generationPanel.removeAll();
 				frame.generationPanel.repaint();
-				// createNewDNAFactory();
+			}
+		});
+		
+		JButton saveBio1 = new JButton("Save Biomorph 1");
+		saveBio1.setBounds(473, 170, 137, 47);
+		contentPane.add(saveBio1);
+		
+		saveBio1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+
+				JFileChooser chooser = new JFileChooser();
+			    chooser.setCurrentDirectory(new java.io.File("."));
+			    chooser.setDialogTitle("Save Image");
+			    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			    chooser.setAcceptAllFileFilterUsed(false);
+
+			    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			      BufferedImage img = ComponentImageCapture.getScreenShot(selectedBio1);
+				try {
+				      ImageIO.write(img, "png",
+								new File(chooser.getSelectedFile() + File.separator + "Biomorph1.png"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			    } else {
+			      System.out.println("No Selection ");
+			    }
+			}
+		});
+		
+		
+		JButton saveBio2 = new JButton("Save Biomorph 2");
+		saveBio2.setBounds(473, 225, 137, 47);
+		contentPane.add(saveBio2);
+		
+		saveBio2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				
+				JFileChooser chooser = new JFileChooser();
+			    chooser.setCurrentDirectory(new java.io.File("."));
+			    chooser.setDialogTitle("Save Image");
+			    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			    chooser.setAcceptAllFileFilterUsed(false);
+
+			    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			      BufferedImage img = ComponentImageCapture.getScreenShot(selectedBio2);
+				try {
+				      ImageIO.write(img, "png",
+								new File(chooser.getSelectedFile() + File.separator + "Biomorph2.png"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			    } else {
+			      System.out.println("No Selection ");
+			    }
+									
+			}
+		});
+		
+		
+		JButton OpenHallOfFrame = new JButton("Open Hall Of Fame");
+		OpenHallOfFrame.setName("OpenHallOfFame");
+		OpenHallOfFrame.setBounds(473, 395, 137, 47);
+		contentPane.add(OpenHallOfFrame);
+		
+		OpenHallOfFrame.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(!openHallOfframe){
+					frame.setVisible(true);
+					openHallOfframe = true;
+				}else{
+					frame.setVisible(false);
+					openHallOfframe = false;
+				}
+					
 			}
 		});
 
@@ -425,7 +530,6 @@ public class Gui extends JFrame {
 		generationPanel = new JPanel(new GridLayout(3, 3, 3, 3));
 		generationPanel.setBounds(10, 32, 258, 375);
 		generationPanel.setBorder(blueLine);
-
 		createNewDNAFactory();
 	}
 
@@ -436,16 +540,14 @@ public class Gui extends JFrame {
 		DNAFactory dnaFactory = new DNAFactory();
 		for (BiomorphPanel bp : dnaFactory.getGeneration()) {
 			bp.addMouseListener(ml);
+			bp.setName("generationPanel");
 			generationPanel.add(bp);
 		}
 
 		contentPane.add(generationPanel);
 	}
-
 	
-	         
 	//face mouse action listener class
-	 
 	private class BMMouseListener implements MouseListener {
 
 		private BiomorphPanel bp;
@@ -460,7 +562,6 @@ public class Gui extends JFrame {
 				selectedBio1.repaint();
 				changeBioPan1 = false;
 			} else if (changeBioPan1 == false) {
-				biomorf2Code = bp.i;
 				selectedBio2.add(e.getComponent(), 0);
 				selectedBio2.getComponent(0).setLocation(50, 40);
 				System.out.println("x " + e.getComponent().toString());

@@ -3,35 +3,31 @@ package Stage2;
 import java.util.ArrayList;
 import java.util.Random;
 /**
- * Class responsible for dealing with DNA.
- * @author Mohammed, Sheraz, Aman
+ * Class responsible for main gui.
+ * @author Mohammed, Sheraz, Aman, 
  */
 public class DNAFactory {
 
 	private Random random = new Random();
 	private ArrayList<BiomorphPanel> generation;
 
-	/**
-	 * get egeration face of DNA Factory
-	 * @param biomorph1Code
-	 * @return
-	 */
-	public ArrayList<BiomorphPanel> getGeneration(int biomorph1Code) {
+	
+	 // get 9 faces of DNA Factory
+	
+	public ArrayList<BiomorphPanel> getGeneration(int biomorf1Code) {
 		ArrayList<BiomorphPanel> generation = new ArrayList<BiomorphPanel>();
 		int i = 0;
 		boolean b = false;
-		// adds 9 biomorphPanels
 		while (i < 9) {
-				generation.add(new BiomorphPanel(i,true,biomorph1Code));
+				generation.add(new BiomorphPanel(i,true,biomorf1Code));
 			i++;
 		}
 		return generation;
 	}
 
-	/**
-	 * get init Generation
-	 * @return
-	 */
+	
+	 //get 9 faces of random generation
+	
 	public ArrayList<BiomorphPanel> getGeneration() {
 		
 		return generation;
@@ -41,16 +37,13 @@ public class DNAFactory {
 		// arraylist of biomorphs to be shown in GUI
 		generation = new ArrayList<BiomorphPanel>();
 		int i = 0;
-		// adds 9 biomorphPanels. TODO:Separate biomorph from panel?
+		// adds 9 biomorphPanels
 		while (i < 9) {
 			generation.add(new BiomorphPanel(i,false,10));
 			i++;
 		}
 	}
 
-	/**
-	 * New Generation
-	 */
 	public DNA generateDNA() {
 		DNA dna;
 

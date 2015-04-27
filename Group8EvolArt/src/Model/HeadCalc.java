@@ -6,10 +6,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 
 import Stage2.Pair;
-/**
- * Class responsible for head calculations.
- * @author Mohammed, Sheraz, Aman, Josh
- */
+
 public class HeadCalc {
 
 	private int ORIGIN = 350;
@@ -34,6 +31,7 @@ public class HeadCalc {
 			} else if (i == 2 || i == 5) {
 				this.headHeight = 370;
 				this.headWidth = 400;
+				this.headPoints = 13;
 			} else if (i == 8 || i == 9) {
 				this.headHeight = 350;
 			}
@@ -42,27 +40,30 @@ public class HeadCalc {
 			if (p == 1) {
 				headWidth = 400;
 				headHeight = 500;
+				
 			}
 			if (p == 2) {
 				headWidth = 450;
 				headHeight = 400;
+				
 			}
 			if (p == 3) {
 				headHeight = 380;
 			}
 			if (p == 4) {
-				headWidth = 400;
+				headWidth = 350;
+				headHeight = 400;
 			}
 			if (p == 5) {
 				headHeight = 500;
 			}
 			if (p == 6) {
-				headWidth = 350;
-				headHeight = 400;
+				headWidth = 450;
 			}
 			if (p == 7) {
 				headWidth = 400;
 				headHeight = 450;
+				
 			}
 			if (p == 8) {
 				headWidth = 300;

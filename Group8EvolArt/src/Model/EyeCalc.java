@@ -11,7 +11,6 @@ public class EyeCalc {
 	private int eyeWidth = 95;
 	private int eyeHeight = 50;
 	private int eyePoints = 8;
-	// private int eyeRadius;
 	private int xDistance = 100;
 
 	/**
@@ -39,7 +38,7 @@ public class EyeCalc {
 					this.eyeHeight = 60;
 				}
 			}
-			if (p == 2|| p==6|| p==8) {
+			if (p == 2|| p==6|| p==8|| p == 4) {
 				if (i == 1) {
 					this.eyeHeight = 75;
 				}
