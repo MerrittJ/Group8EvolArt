@@ -29,7 +29,6 @@ import javax.swing.border.EmptyBorder;
 
 import util.ComponentImageCapture;
 import Stage2.BiomorphPanel;
-import Stage2.Control;
 import Stage2.DNAFactory;
 
 /**
@@ -75,7 +74,6 @@ public class Gui extends JFrame {
 	 */
 	public Gui() {
 
-		Control c = new Control();
 		changeBioPan1 = true;
 
 		setTitle("BIOMORPH GENERATOR");

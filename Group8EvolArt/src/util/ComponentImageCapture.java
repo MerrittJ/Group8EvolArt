@@ -29,7 +29,7 @@ import javax.swing.border.TitledBorder;
 /**
  * Create a screenshot of a component.
  * 
- * @author Sheraz, Aman
+ * @author Sheraz Atiq, Aman Kauldhar
  */
 public class ComponentImageCapture {
 

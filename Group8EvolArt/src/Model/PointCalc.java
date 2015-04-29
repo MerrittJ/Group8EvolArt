@@ -4,7 +4,6 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 import java.util.Random;
 
-import Stage2.DNA;
 import Stage2.Pair;
 
 /**

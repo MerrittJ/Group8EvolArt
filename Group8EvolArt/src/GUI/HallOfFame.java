@@ -55,8 +55,6 @@ public class HallOfFame extends JFrame {
 		Border blueLine = BorderFactory.createLineBorder(Color.blue);
 		generationPanel.setBorder(blueLine);
 		
-		DNAFactory dnaFactory=new DNAFactory();
-		
 		JButton clearButton = new JButton("Clear Hall of Fame");
 		clearButton.setBounds(5, 5, 150, 10);
 		contentPane.add(clearButton,BorderLayout.PAGE_START);

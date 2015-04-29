@@ -9,6 +9,11 @@ import javax.swing.JInternalFrame;
 
 import Stage2.BiomorphPanel;
 
+/**
+ * Class 
+ * @author Abdul Ahmed
+ *
+ */
 public class InternalFrame extends JFrame {
 	/**
 	 * 
