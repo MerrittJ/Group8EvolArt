@@ -4,19 +4,35 @@ import java.util.HashMap;
 
 import Stage2.Pair;
 
+/**
+ * Calculator class for generating the points representing the mouth.
+ * @author Josh Merritt, Sheraz Atiq, Aman Kauldhar
+ *
+ */
 public class MouthCalc {
 
+	/**
+	 * Width of the 'middle' line of the mouth. Initialised to 50 but not changed in the course of the program
+	 */
 	private int mouthMidWidth = 50;
+	/**
+	 * Width of each 'side' line of the mouth. Initialised to 50 but not changed in the course of the program
+	 */
 	private int mouthSideWidth = 50;
-	private int mouthHeight = 50; // positive smile, negative frown
+	/**
+	 * Height of the mouth. Observed by the gradient of the 'side' lines. A positive value is a smile and a negative value is a frown. Initialised to 50.
+	 */
+	private int mouthHeight = 50;
+	/**
+	 * Integer to set centre of canvas to draw upon
+	 */
 	private int ORIGIN = 350;
 
 	/**
-	 * mouth calcutaion logic
-	 * 
-	 * @param i
-	 * @param b
-	 * @param p
+	 * Constructor for MouthCalc. Takes parameters to determine mutation.
+	 * @param i Integer that ensures each biomorph in the generation created for the GUI is different from one another
+	 * @param b Boolean that determines whether or not results should be different from input. This is linked with usage in the Hall of Fame and other 'cloning' situations of the biomorph
+	 * @param p Integer stemming from which biomorph was selected in the generation. Key part of the 'mutation' process.
 	 */
 	public MouthCalc(int i, boolean b, int p) {
 		if (!b) {
@@ -62,24 +78,41 @@ public class MouthCalc {
 
 	}
 
+	/**
+	 * Method to set the three attributes for a mouth (midWidth, sideWidth, and height).
+	 * @param attribs An array of three integers corresponding to each attribute
+	 */
 	public void setAttribs(int[] attribs) {
 		mouthMidWidth = attribs[0];
 		mouthSideWidth = attribs[1];
 		mouthHeight = attribs[2];
 	}
 
+	/**
+	 * Getter method for middle line width
+	 */
 	public int getMouthMidWidth() {
 		return mouthMidWidth;
 	}
 
+	/**
+	 * Getter method for side line width
+	 */
 	public int getMouthSideWidth() {
 		return mouthSideWidth;
 	}
 
+	/**
+	 * Getter method for mouth height
+	 */
 	public int getMouthHeight() {
 		return mouthHeight;
 	}
 
+	/**
+	 * Calculator method to generate the points for the mouth. Mouth is comprised of 4 lines, a right middle and side, and a left middle and side but will appear as three due to the middle lines appearing straight.
+	 * @return a Pair object of HashMaps, each with an integer key and Integer, Integer Pair value
+	 */
 	public Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> getMouthPoints() {
 		Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>> allPoints = new Pair<HashMap<Integer, Pair<Integer, Integer>>, HashMap<Integer, Pair<Integer, Integer>>>();
 

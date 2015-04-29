@@ -33,8 +33,8 @@ import Stage2.Control;
 import Stage2.DNAFactory;
 
 /**
- * Class responsible for main gui.
- * @author Mohammed, Sheraz, Aman
+ * GUI class.
+ * @author Mohammed Baseel, Sheraz Atiq, Aman Kauldhar, Josh Merritt
  */
 public class Gui extends JFrame {
 
@@ -45,11 +45,9 @@ public class Gui extends JFrame {
 	private int totalFrame = 0;
 	boolean bar = false;
 	private boolean flag = true;
-	private JPanel generationPanel;
-	private JPanel generationPanel2;
-	private JPanel generationPanel3, generationPanel9, generationPanel10;
-	private JPanel generationPanel4, generationPanel5, generationPanel6,
-			generationPanel7, generationPanel8;
+	private JPanel generationPanel, generationPanel2, generationPanel3, 
+		generationPanel9, generationPanel10, generationPanel4, generationPanel5, 
+		generationPanel6, generationPanel7, generationPanel8;
 	BMMouseListener ml = new BMMouseListener();
 	private int biomorf1Code = 1;
 	List<Component> componentsList = new ArrayList<Component>();
@@ -57,7 +55,7 @@ public class Gui extends JFrame {
 	private boolean openHallOfframe;
 
 	/**
-	 * Launch the application.
+	 * Main method to launch the application.
 	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -70,11 +68,10 @@ public class Gui extends JFrame {
 				}
 			}
 		});
-
 	}
 
 	/**
-	 * Create the frame.
+	 * Constructor creating the primary frame for the GUI.
 	 */
 	public Gui() {
 
@@ -90,16 +87,6 @@ public class Gui extends JFrame {
 		contentPane.setLayout(null);
 
 		final HallOfFame frame = new HallOfFame();
-		
-		JButton btnNewButton = new JButton("OPTIONS");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Options open = new Options();
-				open.setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(10, 460, 112, 47);
-
 
 		// mutate GUI button with action
 		JButton btnMutate = new JButton("MUTATE");
@@ -282,22 +269,8 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel10);
 		generationPanel10.setVisible(false);
 
-		
-		
 		btnMutate.setBounds(132, 460, 112, 47);
 		contentPane.add(btnMutate);
-
-		JButton btnSave = new JButton("SAVE");
-		btnSave.setBounds(254, 460, 112, 47);
-		contentPane.add(btnSave);
-
-		JButton btnSaveDna = new JButton("SAVE DNA");
-		btnSaveDna.setBounds(376, 460, 112, 47);
-		contentPane.add(btnSaveDna);
-
-		JButton btnLoadDna = new JButton("LOAD DNA");
-		btnLoadDna.setBounds(498, 460, 112, 47);
-		contentPane.add(btnLoadDna);
 
 		JButton btnHelp = new JButton("HELP");
 		btnHelp.addActionListener(new ActionListener() {
@@ -310,16 +283,7 @@ public class Gui extends JFrame {
 		btnHelp.setBounds(498, 11, 112, 47);
 		contentPane.add(btnHelp);
 
-		JButton btnStartTracking = new JButton("START TRACKING");
-		btnStartTracking.setBounds(473, 163, 137, 47);
-
-
-		JButton btnStopTracking = new JButton("STOP TRACKING");
-		btnStopTracking.setBounds(473, 221, 137, 47);
-;
-
-		// save to hall of fame button 
-		
+		// save to hall of fame button 	
 		JButton btnStopTracking1 = new JButton("Save to Hall of Fame");
 		btnStopTracking1.setName("SaveToHallFame");
 		btnStopTracking1.addActionListener(new ActionListener() {
@@ -474,7 +438,6 @@ public class Gui extends JFrame {
 			}
 		});
 		
-		
 		JButton OpenHallOfFrame = new JButton("Open Hall Of Fame");
 		OpenHallOfFrame.setName("OpenHallOfFame");
 		OpenHallOfFrame.setBounds(473, 395, 137, 47);
@@ -490,8 +453,7 @@ public class Gui extends JFrame {
 				}else{
 					frame.setVisible(false);
 					openHallOfframe = false;
-				}
-					
+				}	
 			}
 		});
 
@@ -534,7 +496,7 @@ public class Gui extends JFrame {
 	}
 
 	/**
-	 * create DNA factory init method
+	 * Method to create a DNA factory and populate it with BiomorphPanels
 	 */
 	private void createNewDNAFactory() {
 		DNAFactory dnaFactory = new DNAFactory();
@@ -547,55 +509,47 @@ public class Gui extends JFrame {
 		contentPane.add(generationPanel);
 	}
 	
-	//face mouse action listener class
+	/** 
+	 * Simple mouse listener class to deal with clicks on panels (and sending the clicked component to the appropriate focus box.
+	 * @author Josh Merritt
+	 */
 	private class BMMouseListener implements MouseListener {
 
 		private BiomorphPanel bp;
 
+		/**
+		 * Click listener method. Cycles between sending a clicked biomorph to 'selectedBio1' and 'selectedBio2', the two focus boxes.
+		 */
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			BiomorphPanel bp = (BiomorphPanel) e.getSource();
 			if (changeBioPan1 == true) {
 				selectedBio1.add(e.getComponent(), 0);
 				selectedBio1.getComponent(0).setLocation(50, 40);
-				System.out.println("y " + e.getComponent().toString());
 				selectedBio1.repaint();
 				changeBioPan1 = false;
 			} else if (changeBioPan1 == false) {
 				selectedBio2.add(e.getComponent(), 0);
 				selectedBio2.getComponent(0).setLocation(50, 40);
-				System.out.println("x " + e.getComponent().toString());
 				selectedBio2.repaint();
 				changeBioPan1 = true;
 			}
 		}
 
-		public BiomorphPanel getBiomorphPanel() {
-			return bp;
-		}
-
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-
 		}
-
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class responsible for main gui.
- * @author Josh
+ * @author Josh Merritt
  */
 public class Control {
 

@@ -16,8 +16,8 @@ import javax.swing.border.EmptyBorder;
 
 import Stage2.DNAFactory;
 /**
- * Class responsible for containing hall of fame.
- * @author Mohammed, Sheraz, Aman
+ * Class responsible for containing hall of fame, where biomorphs are saved to and shown to the user.
+ * @author Mohammed Baseel, Sheraz Atiq, Aman Kauldhar
  */
 public class HallOfFame extends JFrame {
 

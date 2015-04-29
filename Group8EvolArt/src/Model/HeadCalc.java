@@ -6,20 +6,35 @@ import java.awt.geom.Ellipse2D;
 import java.util.HashMap;
 
 import Stage2.Pair;
-
+/**
+ * Calculator class for generating points to draw the head shape.
+ * @author Josh Merritt, Sheraz Atiq, Aman Kauldhar
+ *
+ */
 public class HeadCalc {
 
-	private int ORIGIN = 350;
-	private int headPoints = 10;
-	private int headWidth = 300;
-	private int headHeight = 500;
-
 	/**
-	 * Head calculation logic
-	 * 
-	 * @param i
-	 * @param b
-	 * @param p
+	 * Number of points used to create the head. Initialised to 10.
+	 */
+	private int headPoints = 10;
+	/**
+	 * Head width, initialised to 300.
+	 */
+	private int headWidth = 300;
+	/**
+	 * Head height, initialised to 500.
+	 */
+	private int headHeight = 500;
+	/**
+	 * Integer to set centre of canvas to draw upon
+	 */
+	private int ORIGIN = 350;
+	
+	/**
+	 * Constructor for HeadCalc. Takes parameters to determine mutation.
+	 * @param i Integer that ensures each biomorph in the generation created for the GUI is different from one another
+	 * @param b Boolean that determines whether or not results should be different from input. This is linked with usage in the Hall of Fame and other 'cloning' situations of the biomorph
+	 * @param p Integer stemming from which biomorph was selected in the generation. Key part of the 'mutation' process.
 	 */
 	public HeadCalc(int i, boolean b, int p) {
 		if (!b) {
@@ -74,25 +89,42 @@ public class HeadCalc {
 
 		}
 	}
-
+	
+	/**
+	 * Method to set the three attributes for an head (points, width, and height).
+	 * @param attribs An array of three integers corresponding to each attribute
+	 */
 	public void setAttribs(int[] attribs) {
 		headPoints = attribs[0];
 		headWidth = attribs[1];
 		headHeight = attribs[2];
 	}
 
+	/**
+	 * Getter method for head points
+	 */
 	public int getHeadPoints() {
 		return headPoints;
 	}
 
+	/**
+	 * Getter method for head width
+	 */
 	public int getHeadWidth() {
 		return headWidth;
 	}
 
+	/**
+	 * Getter method for head height
+	 */
 	public int getHeadHeight() {
 		return headHeight;
 	}
 
+	/**
+	 * Calculator method generating a polygon that is the head's shape. Similar to the eyes in using maths functions to create the ellipse.
+	 * @return A Polygon representing the head of the biomorph
+	 */
 	public Polygon getHeadShape() {
 		Polygon result = new Polygon();
 		for (int i = 0; i < headPoints; i++) {
@@ -100,10 +132,8 @@ public class HeadCalc {
 			double currentEllipseAngle = percentDone * 2 * Math.PI;
 
 			Point newPoint = new Point();
-			newPoint.x = ORIGIN
-					+ (int) (headWidth / 2 * Math.cos(currentEllipseAngle));
-			newPoint.y = ORIGIN
-					+ (int) (headHeight / 2 * Math.sin(currentEllipseAngle));
+			newPoint.x = ORIGIN + (int) (headWidth / 2 * Math.cos(currentEllipseAngle));
+			newPoint.y = ORIGIN + (int) (headHeight / 2 * Math.sin(currentEllipseAngle));
 
 			result.addPoint(newPoint.x, newPoint.y);
 		}

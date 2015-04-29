@@ -12,6 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * 
+ * @author Mohammed Baseel, Abdul Ahmed
+ *
+ */
 public class ArchivedBiomorphInterface extends JFrame {
 
 	private JPanel contentPane;

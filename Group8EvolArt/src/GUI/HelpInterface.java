@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * Help frame giving guidance on application usage.
+ * @author Mohammed Baseel, Aman Kauldhar
+ *
+ */
 public class HelpInterface extends JFrame {
 
 	private JPanel contentPane;
