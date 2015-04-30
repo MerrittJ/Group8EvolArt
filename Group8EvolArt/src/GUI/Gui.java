@@ -37,20 +37,51 @@ import Stage2.DNAFactory;
  */
 public class Gui extends JFrame {
 
+	/**
+	 * Highest level JPanel, holding all aspects of the GUI
+	 */
 	private JPanel contentPane;
+	/**
+	 * JPanel to hold a biomorph selected from the current generation
+	 */
 	private JPanel selectedBio1;
+	/**
+	 * JPanel to hold a biomorph selected from the current generation
+	 */
 	private JPanel selectedBio2;
+	/**
+	 * Boolean to change focus between selectedBio panels when updating the container
+	 */
 	boolean changeBioPan1;
-	private int totalFrame = 0;
-	boolean bar = false;
+	/**
+	 * Boolean changing focus between selectedBio panels regarding the Hall of Fame
+	 */
 	private boolean flag = true;
+	/**
+	 * JPanels each holding a biomorph to be displayed in the GUI
+	 */
 	private JPanel generationPanel, generationPanel2, generationPanel3, 
 		generationPanel9, generationPanel10, generationPanel4, generationPanel5, 
 		generationPanel6, generationPanel7, generationPanel8;
+	/**
+	 * Mouse listener handling clicks on panels
+	 */
 	BMMouseListener ml = new BMMouseListener();
+	/**
+	 * Integer used in the mutation process to differentiate each biomorph from the others in its generation
+	 */
 	private int biomorf1Code = 1;
+	/**
+	 * ArrayList holding all of the BiomorphPanels in their Component form
+	 */
 	List<Component> componentsList = new ArrayList<Component>();
+	/**
+	 * Main GUI frame
+	 */
 	static Gui frame;
+	/**
+	 * Boolean involved in opening the Hall Of Fame frame
+	 */
 	private boolean openHallOfframe;
 
 	/**
@@ -286,7 +317,7 @@ public class Gui extends JFrame {
 		btnStopTracking1.setName("SaveToHallFame");
 		btnStopTracking1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (totalFrame <= 9) {
+				if (true) {
 					final JInternalFrame intFrame = new JInternalFrame("");
 					intFrame.setBounds(287, 32, 178, 189);
 					intFrame.setVisible(true);
