@@ -13,8 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-
-import Stage2.DNAFactory;
 /**
  * Class responsible for containing hall of fame, where biomorphs are saved to and shown to the user.
  * @author Mohammed Baseel, Sheraz Atiq, Aman Kauldhar

@@ -2,10 +2,7 @@ package Model;
 
 import java.awt.Point;
 import java.awt.Polygon;
-import java.awt.geom.Ellipse2D;
-import java.util.HashMap;
 
-import Stage2.Pair;
 /**
  * Calculator class for generating points to draw the head shape.
  * @author Josh Merritt, Sheraz Atiq, Aman Kauldhar
